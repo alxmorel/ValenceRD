@@ -17,6 +17,16 @@ namespace ValenceRD
             InitializeComponent();
         }
 
+        public RechercheProduit(int _idProd, String _nomScien, String _symptome, String _version, String _phaseCour, String _dateInsertProd, String _dateDerVers)
+        {
+            InitializeComponent();
+
+            //initialise les variables d'affichages
+            lblNomProduit.Text = _nomScien;
+            lblVersionProduit.Text = _version;
+            lblSymptProd.Text = _symptome;
+        }
+
         private void btnRetourMenu_Click(object sender, EventArgs e)
         {
             MainPageRDValence mainPage = new MainPageRDValence();

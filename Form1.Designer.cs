@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label lblListeProduits;
             System.Windows.Forms.Label LblIdProduitForm;
@@ -37,14 +38,8 @@
             System.Windows.Forms.Label lblSymptomeForm;
             System.Windows.Forms.Label lblDateInsertProdForm;
             System.Windows.Forms.Label lblDateDerValidForm;
-            System.Windows.Forms.Label label8;
-            System.Windows.Forms.Label label9;
-            System.Windows.Forms.Label label10;
-            System.Windows.Forms.Label label11;
-            System.Windows.Forms.Label label13;
-            System.Windows.Forms.Label label14;
-            System.Windows.Forms.Label label12;
-            this.tblDataProduits = new System.Windows.Forms.TableLayoutPanel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TitreAppli = new System.Windows.Forms.Label();
             this.btnCreerProduit = new System.Windows.Forms.Button();
             this.btnUpgradeProduit = new System.Windows.Forms.Button();
@@ -56,6 +51,9 @@
             this.inputNumVersionForm = new System.Windows.Forms.TextBox();
             this.inputDateInsertProdForm = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.r_d_valenceDataSet = new ValenceRD.r_d_valenceDataSet();
+            this.rdvalenceDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             label1 = new System.Windows.Forms.Label();
             lblListeProduits = new System.Windows.Forms.Label();
             LblIdProduitForm = new System.Windows.Forms.Label();
@@ -65,14 +63,9 @@
             lblSymptomeForm = new System.Windows.Forms.Label();
             lblDateInsertProdForm = new System.Windows.Forms.Label();
             lblDateDerValidForm = new System.Windows.Forms.Label();
-            label8 = new System.Windows.Forms.Label();
-            label9 = new System.Windows.Forms.Label();
-            label10 = new System.Windows.Forms.Label();
-            label11 = new System.Windows.Forms.Label();
-            label13 = new System.Windows.Forms.Label();
-            label14 = new System.Windows.Forms.Label();
-            label12 = new System.Windows.Forms.Label();
-            this.tblDataProduits.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.r_d_valenceDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdvalenceDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -185,136 +178,6 @@
             lblDateDerValidForm.TabIndex = 13;
             lblDateDerValidForm.Text = "Date Dernière Validation";
             lblDateDerValidForm.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label8
-            // 
-            label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label8.ForeColor = System.Drawing.Color.MidnightBlue;
-            label8.Location = new System.Drawing.Point(979, 2);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(163, 50);
-            label8.TabIndex = 28;
-            label8.Text = "Date Insertion Produit";
-            label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label9
-            // 
-            label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label9.ForeColor = System.Drawing.Color.MidnightBlue;
-            label9.Location = new System.Drawing.Point(543, 9);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(173, 36);
-            label9.TabIndex = 26;
-            label9.Text = "Symptome";
-            label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label10
-            // 
-            label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label10.ForeColor = System.Drawing.Color.MidnightBlue;
-            label10.Location = new System.Drawing.Point(406, 10);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(109, 34);
-            label10.TabIndex = 25;
-            label10.Text = "N° Version";
-            label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label11
-            // 
-            label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label11.ForeColor = System.Drawing.Color.MidnightBlue;
-            label11.Location = new System.Drawing.Point(206, 11);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(163, 31);
-            label11.TabIndex = 24;
-            label11.Text = "Nom Produit";
-            label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label13
-            // 
-            label13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label13.ForeColor = System.Drawing.Color.MidnightBlue;
-            label13.Location = new System.Drawing.Point(764, 10);
-            label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(163, 33);
-            label13.TabIndex = 27;
-            label13.Text = "Phase Courante";
-            label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label14
-            // 
-            label14.Anchor = System.Windows.Forms.AnchorStyles.None;
-            label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label14.ForeColor = System.Drawing.Color.MidnightBlue;
-            label14.Location = new System.Drawing.Point(5, 9);
-            label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(163, 36);
-            label14.TabIndex = 23;
-            label14.Text = "Identifiant Produit";
-            label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label12
-            // 
-            label12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label12.ForeColor = System.Drawing.Color.MidnightBlue;
-            label12.Location = new System.Drawing.Point(1197, 2);
-            label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(163, 50);
-            label12.TabIndex = 29;
-            label12.Text = "Date Dernière Validation";
-            label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // tblDataProduits
-            // 
-            this.tblDataProduits.AccessibleName = "tblDataProduits";
-            this.tblDataProduits.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tblDataProduits.AutoScroll = true;
-            this.tblDataProduits.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tblDataProduits.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tblDataProduits.ColumnCount = 7;
-            this.tblDataProduits.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tblDataProduits.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.59514F));
-            this.tblDataProduits.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.369099F));
-            this.tblDataProduits.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.16595F));
-            this.tblDataProduits.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.02146F));
-            this.tblDataProduits.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.09442F));
-            this.tblDataProduits.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.16452F));
-            this.tblDataProduits.Controls.Add(label8, 5, 0);
-            this.tblDataProduits.Controls.Add(label9, 3, 0);
-            this.tblDataProduits.Controls.Add(label10, 2, 0);
-            this.tblDataProduits.Controls.Add(label11, 1, 0);
-            this.tblDataProduits.Controls.Add(label13, 4, 0);
-            this.tblDataProduits.Controls.Add(label14, 0, 0);
-            this.tblDataProduits.Controls.Add(label12, 6, 0);
-            this.tblDataProduits.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tblDataProduits.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tblDataProduits.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.tblDataProduits.Location = new System.Drawing.Point(43, 526);
-            this.tblDataProduits.Name = "tblDataProduits";
-            this.tblDataProduits.RowCount = 2;
-            this.tblDataProduits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblDataProduits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 216F));
-            this.tblDataProduits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tblDataProduits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 154F));
-            this.tblDataProduits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblDataProduits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblDataProduits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblDataProduits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblDataProduits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblDataProduits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblDataProduits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblDataProduits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblDataProduits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblDataProduits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblDataProduits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblDataProduits.Size = new System.Drawing.Size(1386, 271);
-            this.tblDataProduits.TabIndex = 23;
             // 
             // TitreAppli
             // 
@@ -437,14 +300,58 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(184, 20);
             this.dateTimePicker2.TabIndex = 21;
             // 
+            // r_d_valenceDataSet
+            // 
+            this.r_d_valenceDataSet.DataSetName = "r_d_valenceDataSet";
+            this.r_d_valenceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rdvalenceDataSetBindingSource
+            // 
+            this.rdvalenceDataSetBindingSource.DataSource = this.r_d_valenceDataSet;
+            this.rdvalenceDataSetBindingSource.Position = 0;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Location = new System.Drawing.Point(34, 503);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(1393, 277);
+            this.dataGridView1.TabIndex = 30;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // MainPageRDValence
             // 
             this.AccessibleName = "MainPageRDValence";
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1468, 837);
-            this.Controls.Add(this.tblDataProduits);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.inputDateInsertProdForm);
             this.Controls.Add(this.inputNumVersionForm);
@@ -468,7 +375,10 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.Name = "MainPageRDValence";
             this.Text = "R&D Valence";
-            this.tblDataProduits.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.MainPageRDValence_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.r_d_valenceDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdvalenceDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -487,7 +397,9 @@
         private System.Windows.Forms.TextBox inputNumVersionForm;
         private System.Windows.Forms.DateTimePicker inputDateInsertProdForm;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TableLayoutPanel tblDataProduits;
+        private System.Windows.Forms.BindingSource rdvalenceDataSetBindingSource;
+        private r_d_valenceDataSet r_d_valenceDataSet;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

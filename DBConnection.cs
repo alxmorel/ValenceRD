@@ -32,7 +32,7 @@ namespace ValenceRD
         private static DBConnection _instance = null;
         public static DBConnection Instance()
         {
-            if (_instance == null)
+            //if (_instance == null)
                 _instance = new DBConnection();
             return _instance;
         }
@@ -43,7 +43,8 @@ namespace ValenceRD
             {
                 if (String.IsNullOrEmpty(databaseName))
                     return false;
-                string connstring = string.Format("Server=localhost; database={0}; UID=test; pwd=test", databaseName);
+                /*MenaOvh*/ //string connstring = string.Format("Server=5.196.88.86; database={0}; UID=test; pwd=Xr4u4gen", databaseName);
+                /*Localhost*/ string connstring = string.Format("Server=localhost; database={0}; UID=test; pwd=test", databaseName);
                 connection = new MySqlConnection(connstring);
                 connection.Open();
             }

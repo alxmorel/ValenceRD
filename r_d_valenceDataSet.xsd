@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="r_d_valenceDataSet" targetNamespace="http://tempuri.org/r_d_valenceDataSet.xsd" xmlns:mstns="http://tempuri.org/r_d_valenceDataSet.xsd" xmlns="http://tempuri.org/r_d_valenceDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="r_d_valenceConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="r_d_valenceConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ValenceRD.Properties.Settings.GlobalReference.Default.r_d_valenceConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="administrerTableAdapter" GeneratorDataComponentClassName="administrerTableAdapter" Name="administrer" UserDataComponentName="administrerTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.administrer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idProduit`, `idDosage`, `idFrequence` FROM `administrer`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="affecterTableAdapter" GeneratorDataComponentClassName="affecterTableAdapter" Name="affecter" UserDataComponentName="affecterTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.affecter" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idEffetSecondaire`, `idProduit` FROM `affecter`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="dosageTableAdapter" GeneratorDataComponentClassName="dosageTableAdapter" Name="dosage" UserDataComponentName="dosageTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.dosage" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idDosage`, `quantite`, `uniteMesure` FROM `dosage`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="effet_secondaireTableAdapter" GeneratorDataComponentClassName="effet_secondaireTableAdapter" Name="effet_secondaire" UserDataComponentName="effet_secondaireTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.effet_secondaire" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idEffetSecondaire`, `libelle` FROM `effet_secondaire`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="etapeTableAdapter" GeneratorDataComponentClassName="etapeTableAdapter" Name="etape" UserDataComponentName="etapeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.etape" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idEtape`, `libelle` FROM `etape`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="frequenceTableAdapter" GeneratorDataComponentClassName="frequenceTableAdapter" Name="frequence" UserDataComponentName="frequenceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.frequence" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idFrequence`, `libelle` FROM `frequence`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="manipulerTableAdapter" GeneratorDataComponentClassName="manipulerTableAdapter" Name="manipuler" UserDataComponentName="manipulerTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.manipuler" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idEtape`, `idNomenclature`, `quantite`, `uniteMesure` FROM `manipuler`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="nomenclatureTableAdapter" GeneratorDataComponentClassName="nomenclatureTableAdapter" Name="nomenclature" UserDataComponentName="nomenclatureTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.nomenclature" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idNomenclature`, `libelle` FROM `nomenclature`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="phaseTableAdapter" GeneratorDataComponentClassName="phaseTableAdapter" Name="phase" UserDataComponentName="phaseTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.phase" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idPhase`, `libelle` FROM `phase`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="produitTableAdapter" GeneratorDataComponentClassName="produitTableAdapter" Name="produit" UserDataComponentName="produitTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.produit" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idProduit`, `nomScientifique`, `nomGenerique` FROM `produit`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="recetteTableAdapter" GeneratorDataComponentClassName="recetteTableAdapter" Name="recette" UserDataComponentName="recetteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.recette" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idEtape`, `idProduit`, `temps` FROM `recette`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ressourceTableAdapter" GeneratorDataComponentClassName="ressourceTableAdapter" Name="ressource" UserDataComponentName="ressourceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.ressource" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idRessource`, `nom`, `prenom` FROM `ressource`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="traitement_symptomeTableAdapter" GeneratorDataComponentClassName="traitement_symptomeTableAdapter" Name="traitement_symptome" UserDataComponentName="traitement_symptomeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.traitement_symptome" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idTraitementSymptome`, `libelle` FROM `traitement_symptome`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="traiterTableAdapter" GeneratorDataComponentClassName="traiterTableAdapter" Name="traiter" UserDataComponentName="traiterTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.traiter" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idProduit`, `idTraitementSymptome` FROM `traiter`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="travaillerTableAdapter" GeneratorDataComponentClassName="travaillerTableAdapter" Name="travailler" UserDataComponentName="travaillerTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.travailler" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idRessource`, `idEtape` FROM `travailler`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="validerTableAdapter" GeneratorDataComponentClassName="validerTableAdapter" Name="valider" UserDataComponentName="validerTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.valider" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idPhase`, `idVersion`, `idProduit`, `dateInsertion`, `dateValidation`, `validation`, `commentaire` FROM `valider`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="versionTableAdapter" GeneratorDataComponentClassName="versionTableAdapter" Name="version" UserDataComponentName="versionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="r_d_valenceConnectionString (Settings)" DbObjectName="r_d_valence.version" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idVersion`, `commentaire` FROM `version`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="r_d_valenceDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="r_d_valenceDataSet" msprop:Generator_UserDSName="r_d_valenceDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="administrer" msprop:Generator_TableClassName="administrerDataTable" msprop:Generator_TableVarName="tableadministrer" msprop:Generator_TablePropName="administrer" msprop:Generator_RowDeletingName="administrerRowDeleting" msprop:Generator_RowChangingName="administrerRowChanging" msprop:Generator_RowEvHandlerName="administrerRowChangeEventHandler" msprop:Generator_RowDeletedName="administrerRowDeleted" msprop:Generator_UserTableName="administrer" msprop:Generator_RowChangedName="administrerRowChanged" msprop:Generator_RowEvArgName="administrerRowChangeEvent" msprop:Generator_RowClassName="administrerRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="affecter" msprop:Generator_TableClassName="affecterDataTable" msprop:Generator_TableVarName="tableaffecter" msprop:Generator_TablePropName="affecter" msprop:Generator_RowDeletingName="affecterRowDeleting" msprop:Generator_RowChangingName="affecterRowChanging" msprop:Generator_RowEvHandlerName="affecterRowChangeEventHandler" msprop:Generator_RowDeletedName="affecterRowDeleted" msprop:Generator_UserTableName="affecter" msprop:Generator_RowChangedName="affecterRowChanged" msprop:Generator_RowEvArgName="affecterRowChangeEvent" msprop:Generator_RowClassName="affecterRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dosage" msprop:Generator_TableClassName="dosageDataTable" msprop:Generator_TableVarName="tabledosage" msprop:Generator_TablePropName="dosage" msprop:Generator_RowDeletingName="dosageRowDeleting" msprop:Generator_RowChangingName="dosageRowChanging" msprop:Generator_RowEvHandlerName="dosageRowChangeEventHandler" msprop:Generator_RowDeletedName="dosageRowDeleted" msprop:Generator_UserTableName="dosage" msprop:Generator_RowChangedName="dosageRowChanged" msprop:Generator_RowEvArgName="dosageRowChangeEvent" msprop:Generator_RowClassName="dosageRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="effet_secondaire" msprop:Generator_TableClassName="effet_secondaireDataTable" msprop:Generator_TableVarName="tableeffet_secondaire" msprop:Generator_TablePropName="effet_secondaire" msprop:Generator_RowDeletingName="effet_secondaireRowDeleting" msprop:Generator_RowChangingName="effet_secondaireRowChanging" msprop:Generator_RowEvHandlerName="effet_secondaireRowChangeEventHandler" msprop:Generator_RowDeletedName="effet_secondaireRowDeleted" msprop:Generator_UserTableName="effet_secondaire" msprop:Generator_RowChangedName="effet_secondaireRowChanged" msprop:Generator_RowEvArgName="effet_secondaireRowChangeEvent" msprop:Generator_RowClassName="effet_secondaireRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="etape" msprop:Generator_TableClassName="etapeDataTable" msprop:Generator_TableVarName="tableetape" msprop:Generator_TablePropName="etape" msprop:Generator_RowDeletingName="etapeRowDeleting" msprop:Generator_RowChangingName="etapeRowChanging" msprop:Generator_RowEvHandlerName="etapeRowChangeEventHandler" msprop:Generator_RowDeletedName="etapeRowDeleted" msprop:Generator_UserTableName="etape" msprop:Generator_RowChangedName="etapeRowChanged" msprop:Generator_RowEvArgName="etapeRowChangeEvent" msprop:Generator_RowClassName="etapeRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="frequence" msprop:Generator_TableClassName="frequenceDataTable" msprop:Generator_TableVarName="tablefrequence" msprop:Generator_TablePropName="frequence" msprop:Generator_RowDeletingName="frequenceRowDeleting" msprop:Generator_RowChangingName="frequenceRowChanging" msprop:Generator_RowEvHandlerName="frequenceRowChangeEventHandler" msprop:Generator_RowDeletedName="frequenceRowDeleted" msprop:Generator_UserTableName="frequence" msprop:Generator_RowChangedName="frequenceRowChanged" msprop:Generator_RowEvArgName="frequenceRowChangeEvent" msprop:Generator_RowClassName="frequenceRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="manipuler" msprop:Generator_TableClassName="manipulerDataTable" msprop:Generator_TableVarName="tablemanipuler" msprop:Generator_TablePropName="manipuler" msprop:Generator_RowDeletingName="manipulerRowDeleting" msprop:Generator_RowChangingName="manipulerRowChanging" msprop:Generator_RowEvHandlerName="manipulerRowChangeEventHandler" msprop:Generator_RowDeletedName="manipulerRowDeleted" msprop:Generator_UserTableName="manipuler" msprop:Generator_RowChangedName="manipulerRowChanged" msprop:Generator_RowEvArgName="manipulerRowChangeEvent" msprop:Generator_RowClassName="manipulerRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="nomenclature" msprop:Generator_TableClassName="nomenclatureDataTable" msprop:Generator_TableVarName="tablenomenclature" msprop:Generator_TablePropName="nomenclature" msprop:Generator_RowDeletingName="nomenclatureRowDeleting" msprop:Generator_RowChangingName="nomenclatureRowChanging" msprop:Generator_RowEvHandlerName="nomenclatureRowChangeEventHandler" msprop:Generator_RowDeletedName="nomenclatureRowDeleted" msprop:Generator_UserTableName="nomenclature" msprop:Generator_RowChangedName="nomenclatureRowChanged" msprop:Generator_RowEvArgName="nomenclatureRowChangeEvent" msprop:Generator_RowClassName="nomenclatureRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="phase" msprop:Generator_TableClassName="phaseDataTable" msprop:Generator_TableVarName="tablephase" msprop:Generator_TablePropName="phase" msprop:Generator_RowDeletingName="phaseRowDeleting" msprop:Generator_RowChangingName="phaseRowChanging" msprop:Generator_RowEvHandlerName="phaseRowChangeEventHandler" msprop:Generator_RowDeletedName="phaseRowDeleted" msprop:Generator_UserTableName="phase" msprop:Generator_RowChangedName="phaseRowChanged" msprop:Generator_RowEvArgName="phaseRowChangeEvent" msprop:Generator_RowClassName="phaseRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="produit" msprop:Generator_TableClassName="produitDataTable" msprop:Generator_TableVarName="tableproduit" msprop:Generator_TablePropName="produit" msprop:Generator_RowDeletingName="produitRowDeleting" msprop:Generator_RowChangingName="produitRowChanging" msprop:Generator_RowEvHandlerName="produitRowChangeEventHandler" msprop:Generator_RowDeletedName="produitRowDeleted" msprop:Generator_UserTableName="produit" msprop:Generator_RowChangedName="produitRowChanged" msprop:Generator_RowEvArgName="produitRowChangeEvent" msprop:Generator_RowClassName="produitRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="recette" msprop:Generator_TableClassName="recetteDataTable" msprop:Generator_TableVarName="tablerecette" msprop:Generator_TablePropName="recette" msprop:Generator_RowDeletingName="recetteRowDeleting" msprop:Generator_RowChangingName="recetteRowChanging" msprop:Generator_RowEvHandlerName="recetteRowChangeEventHandler" msprop:Generator_RowDeletedName="recetteRowDeleted" msprop:Generator_UserTableName="recette" msprop:Generator_RowChangedName="recetteRowChanged" msprop:Generator_RowEvArgName="recetteRowChangeEvent" msprop:Generator_RowClassName="recetteRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ressource" msprop:Generator_TableClassName="ressourceDataTable" msprop:Generator_TableVarName="tableressource" msprop:Generator_TablePropName="ressource" msprop:Generator_RowDeletingName="ressourceRowDeleting" msprop:Generator_RowChangingName="ressourceRowChanging" msprop:Generator_RowEvHandlerName="ressourceRowChangeEventHandler" msprop:Generator_RowDeletedName="ressourceRowDeleted" msprop:Generator_UserTableName="ressource" msprop:Generator_RowChangedName="ressourceRowChanged" msprop:Generator_RowEvArgName="ressourceRowChangeEvent" msprop:Generator_RowClassName="ressourceRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="traitement_symptome" msprop:Generator_TableClassName="traitement_symptomeDataTable" msprop:Generator_TableVarName="tabletraitement_symptome" msprop:Generator_TablePropName="traitement_symptome" msprop:Generator_RowDeletingName="traitement_symptomeRowDeleting" msprop:Generator_RowChangingName="traitement_symptomeRowChanging" msprop:Generator_RowEvHandlerName="traitement_symptomeRowChangeEventHandler" msprop:Generator_RowDeletedName="traitement_symptomeRowDeleted" msprop:Generator_UserTableName="traitement_symptome" msprop:Generator_RowChangedName="traitement_symptomeRowChanged" msprop:Generator_RowEvArgName="traitement_symptomeRowChangeEvent" msprop:Generator_RowClassName="traitement_symptomeRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="traiter" msprop:Generator_TableClassName="traiterDataTable" msprop:Generator_TableVarName="tabletraiter" msprop:Generator_TablePropName="traiter" msprop:Generator_RowDeletingName="traiterRowDeleting" msprop:Generator_RowChangingName="traiterRowChanging" msprop:Generator_RowEvHandlerName="traiterRowChangeEventHandler" msprop:Generator_RowDeletedName="traiterRowDeleted" msprop:Generator_UserTableName="traiter" msprop:Generator_RowChangedName="traiterRowChanged" msprop:Generator_RowEvArgName="traiterRowChangeEvent" msprop:Generator_RowClassName="traiterRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="travailler" msprop:Generator_TableClassName="travaillerDataTable" msprop:Generator_TableVarName="tabletravailler" msprop:Generator_TablePropName="travailler" msprop:Generator_RowDeletingName="travaillerRowDeleting" msprop:Generator_RowChangingName="travaillerRowChanging" msprop:Generator_RowEvHandlerName="travaillerRowChangeEventHandler" msprop:Generator_RowDeletedName="travaillerRowDeleted" msprop:Generator_UserTableName="travailler" msprop:Generator_RowChangedName="travaillerRowChanged" msprop:Generator_RowEvArgName="travaillerRowChangeEvent" msprop:Generator_RowClassName="travaillerRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="valider" msprop:Generator_TableClassName="validerDataTable" msprop:Generator_TableVarName="tablevalider" msprop:Generator_TablePropName="valider" msprop:Generator_RowDeletingName="validerRowDeleting" msprop:Generator_RowChangingName="validerRowChanging" msprop:Generator_RowEvHandlerName="validerRowChangeEventHandler" msprop:Generator_RowDeletedName="validerRowDeleted" msprop:Generator_UserTableName="valider" msprop:Generator_RowChangedName="validerRowChanged" msprop:Generator_RowEvArgName="validerRowChangeEvent" msprop:Generator_RowClassName="validerRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="version" msprop:Generator_TableClassName="versionDataTable" msprop:Generator_TableVarName="tableversion" msprop:Generator_TablePropName="version" msprop:Generator_RowDeletingName="versionRowDeleting" msprop:Generator_RowChangingName="versionRowChanging" msprop:Generator_RowEvHandlerName="versionRowChangeEventHandler" msprop:Generator_RowDeletedName="versionRowDeleted" msprop:Generator_UserTableName="version" msprop:Generator_RowChangedName="versionRowChanged" msprop:Generator_RowEvArgName="versionRowChangeEvent" msprop:Generator_RowClassName="versionRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

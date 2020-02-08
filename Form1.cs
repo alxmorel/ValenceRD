@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -7,64 +8,82 @@ namespace ValenceRD
 {
     public partial class MainPageRDValence : Form
     {
+       public List<Produits> listProduits { get; set; }
 
         public MainPageRDValence()
         {
+            listProduits = GetProduits();
             InitializeComponent();
-            //Connection Base de données r_d_valence
-           
-            
+        }
 
-            var dbCon = DBConnection.Instance();
+        private List<Produits> GetProduits()
+        {
+            List<Produits> list = new List<Produits>();
+
+            //Connection Base de données r_d_valence
+            DBConnection dbCon = DBConnection.Instance();
             dbCon.DatabaseName = "r_d_valence";
 
             if (dbCon.IsConnect())
             {
-                //suppose col0 and col1 are defined as VARCHAR in the DB
-                string query = "SELECT produit.idProduit, produit.nomScientifique, traitement_symptome.libelle FROM produit, traitement_symptome, traiter where produit.idProduit = traiter.idProduit and traiter.idTraitementSymptome = traitement_symptome.idTraitementSymptome";
-                var cmd = new MySqlCommand(query, dbCon.Connection);
-                var reader = cmd.ExecuteReader();
+                /*MenaOvh*/ //string query = "SELECT Produit.idProduit, Produit.nomScientifique, Traitement_Syptome.libelle FROM Produit, Traitement_Syptome, Traiter where Produit.idProduit = Traiter.idProduit and Traiter.idTraitementSymptome = Traitement_Syptome.idTraitementSymptome order by idProduit";
+                /*Localhost*/
+                string query = "SELECT produit.idProduit, produit.nomScientifique, traitement_Symptome.libelle FROM produit left outer join traiter on produit.idProduit = traiter.idProduit left outer join traitement_symptome on traiter.idTraitementSymptome = traitement_Symptome.idTraitementSymptome order by idProduit";
 
+                MySqlCommand cmd = new MySqlCommand(query, dbCon.Connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                string symptome = "";
                 while (reader.Read())
                 {
                     string idProduit = reader.GetString(0);
                     string nomScientifique = reader.GetString(1);
-                    string symptome = reader.GetString(2);
+                    if (!reader.IsDBNull(2))
+                    {
+                        symptome = reader.GetString(2);
+                    }
+                    else
+                    {
+                        symptome = "";
+                    }
                     Console.WriteLine(idProduit + "," + nomScientifique + "," + symptome);
 
-                    AddItem(idProduit, nomScientifique, symptome);
+                    list.Add(new Produits()
+                    {
+                        id_Produit = Int32.Parse(idProduit),
+                        nom_Scientifique = nomScientifique,
+                        symptome = symptome,
+                        version = "",
+                        phase_Courante = "",
+                        date_insertion_produit = "",
+                        date_derniere_validation = ""
+                        
+                    });
+
                 }
+                reader.Close();
                 dbCon.Close();
             }
-
+            return list;
         }
 
 
-        private void AddItem(string idProduit, string nomScientifique, string symptome)
+        /*private void AddItem(string idProduit, string nomScientifique, string symptome)
         {
             TableLayoutRowStyleCollection styles = tblDataProduits.RowStyles;
-                foreach (RowStyle style in styles)
-                {
-                // Set the row height to 20 pixels.
-                if (styles.IndexOf(style) > 1)
-                {
-                    style.SizeType = SizeType.Absolute;
-                    style.Height = 30;
+                foreach (RowStyle style in styles){
+                        style.SizeType = SizeType.Absolute;
+                        style.Height = 30;
                 }
-                
-                }
-            //get a reference to the previous existent 
-           // RowStyle temp = tblDataProduits.RowStyles[tblDataProduits.RowCount - 1];
+
             //increase panel rows count by one
-            tblDataProduits.RowCount++;
-            //add a new RowStyle as a copy of the previous one
-           // tblDataProduits.RowStyles.Add(new RowStyle(temp.SizeType, temp.Height));
-            //add your three controls
-            tblDataProduits.Controls.Add(new LinkLabel() { Text = idProduit/*, Font = new Font(this.Font.FontFamily, 30)*/ }, 0, tblDataProduits.RowCount - 1);
-            tblDataProduits.Controls.Add(new LinkLabel() { Text = nomScientifique /*, Font = new Font(this.Font.FontFamily, 30)*/ }, 1, tblDataProduits.RowCount - 1);
-            tblDataProduits.Controls.Add(new LinkLabel() { Text = symptome/*, Font = new Font(this.Font.FontFamily, 30)*/ }, 2, tblDataProduits.RowCount - 1);
+                tblDataProduits.RowCount++;
             
-        }
+            //add our three controls
+            tblDataProduits.Controls.Add(new LinkLabel() { Text = idProduit, Font = new Font(this.Font.FontFamily, 12), LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline,  AutoSize = true,}, 0, tblDataProduits.RowCount - 1);
+            tblDataProduits.Controls.Add(new LinkLabel() { Text = nomScientifique , Font = new Font(this.Font.FontFamily, 12), LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline, AutoSize = true }, 1, tblDataProduits.RowCount - 1);
+            tblDataProduits.Controls.Add(new LinkLabel() { Text = symptome, Font = new Font(this.Font.FontFamily, 12), LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline, AutoSize = true }, 2, tblDataProduits.RowCount - 1);
+
+        }*/
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -99,15 +118,6 @@ namespace ValenceRD
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void LblIdProduitForm_Click(object sender, EventArgs e)
         {
@@ -121,9 +131,29 @@ namespace ValenceRD
             this.Hide();
         }
 
-        private void lblColIdProdtbl_Click(object sender, EventArgs e)
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void MainPageRDValence_Load(object sender, EventArgs e)
+        {
+            Console.WriteLine("HELLLLLLOOOOO !!!");
+            List<Produits> produits = this.listProduits;
+            dataGridView1.DataSource = produits;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex == 1) //Click sur id Produit
+            {
+                var produitCLic = listProduits[e.RowIndex];
+                Console.WriteLine("Clicked IDProduit :" + produitCLic.id_Produit);
+                RechercheProduit rechProd = new RechercheProduit(produitCLic.id_Produit, produitCLic.nom_Scientifique, produitCLic.symptome, produitCLic.version, produitCLic.phase_Courante, produitCLic.date_insertion_produit, produitCLic.date_derniere_validation);
+                this.Hide();
+                rechProd.Show();
+            }
         }
     }
 }

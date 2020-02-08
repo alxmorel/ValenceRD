@@ -28,12 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label lblNomProduit;
-            System.Windows.Forms.Label lblVersionProduit;
-            System.Windows.Forms.Label lblSymptProd;
             System.Windows.Forms.Label lblSymptome;
             System.Windows.Forms.Label lblEffetSec;
-            System.Windows.Forms.Label lblEffetSecProd;
             System.Windows.Forms.Label lblRecette;
             System.Windows.Forms.Label lblNomenclat;
             System.Windows.Forms.Label lblEtapes;
@@ -54,6 +50,10 @@
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label10;
             System.Windows.Forms.Label label11;
+            this.lblNomProduit = new System.Windows.Forms.Label();
+            this.lblVersionProduit = new System.Windows.Forms.Label();
+            this.lblSymptProd = new System.Windows.Forms.Label();
+            this.lblEffetSecProd = new System.Windows.Forms.Label();
             this.inputRecette = new System.Windows.Forms.ComboBox();
             this.btnRetourMenu = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -103,12 +103,8 @@
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
-            lblNomProduit = new System.Windows.Forms.Label();
-            lblVersionProduit = new System.Windows.Forms.Label();
-            lblSymptProd = new System.Windows.Forms.Label();
             lblSymptome = new System.Windows.Forms.Label();
             lblEffetSec = new System.Windows.Forms.Label();
-            lblEffetSecProd = new System.Windows.Forms.Label();
             lblRecette = new System.Windows.Forms.Label();
             lblNomenclat = new System.Windows.Forms.Label();
             lblEtapes = new System.Windows.Forms.Label();
@@ -155,42 +151,42 @@
             // 
             // lblNomProduit
             // 
-            lblNomProduit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            lblNomProduit.BackColor = System.Drawing.Color.Transparent;
-            lblNomProduit.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblNomProduit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            lblNomProduit.Location = new System.Drawing.Point(4, 7);
-            lblNomProduit.Name = "lblNomProduit";
-            lblNomProduit.Size = new System.Drawing.Size(437, 75);
-            lblNomProduit.TabIndex = 26;
-            lblNomProduit.Text = "Nom_Produit";
-            lblNomProduit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblNomProduit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblNomProduit.BackColor = System.Drawing.Color.Transparent;
+            this.lblNomProduit.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomProduit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblNomProduit.Location = new System.Drawing.Point(4, 7);
+            this.lblNomProduit.Name = "lblNomProduit";
+            this.lblNomProduit.Size = new System.Drawing.Size(437, 75);
+            this.lblNomProduit.TabIndex = 26;
+            this.lblNomProduit.Text = "Nom_Produit";
+            this.lblNomProduit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblVersionProduit
             // 
-            lblVersionProduit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            lblVersionProduit.BackColor = System.Drawing.Color.Transparent;
-            lblVersionProduit.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            lblVersionProduit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            lblVersionProduit.Location = new System.Drawing.Point(433, 33);
-            lblVersionProduit.Name = "lblVersionProduit";
-            lblVersionProduit.Size = new System.Drawing.Size(232, 45);
-            lblVersionProduit.TabIndex = 27;
-            lblVersionProduit.Text = "Version_prod";
-            lblVersionProduit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblVersionProduit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblVersionProduit.BackColor = System.Drawing.Color.Transparent;
+            this.lblVersionProduit.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.lblVersionProduit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblVersionProduit.Location = new System.Drawing.Point(433, 33);
+            this.lblVersionProduit.Name = "lblVersionProduit";
+            this.lblVersionProduit.Size = new System.Drawing.Size(232, 45);
+            this.lblVersionProduit.TabIndex = 27;
+            this.lblVersionProduit.Text = "Version_prod";
+            this.lblVersionProduit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblSymptProd
             // 
-            lblSymptProd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            lblSymptProd.BackColor = System.Drawing.Color.Transparent;
-            lblSymptProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            lblSymptProd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            lblSymptProd.Location = new System.Drawing.Point(1232, 38);
-            lblSymptProd.Name = "lblSymptProd";
-            lblSymptProd.Size = new System.Drawing.Size(223, 45);
-            lblSymptProd.TabIndex = 28;
-            lblSymptProd.Text = "Symptome_Prod";
-            lblSymptProd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblSymptProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblSymptProd.BackColor = System.Drawing.Color.Transparent;
+            this.lblSymptProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblSymptProd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblSymptProd.Location = new System.Drawing.Point(1232, 38);
+            this.lblSymptProd.Name = "lblSymptProd";
+            this.lblSymptProd.Size = new System.Drawing.Size(223, 45);
+            this.lblSymptProd.TabIndex = 28;
+            this.lblSymptProd.Text = "Symptome_Prod";
+            this.lblSymptProd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblSymptome
             // 
@@ -220,16 +216,16 @@
             // 
             // lblEffetSecProd
             // 
-            lblEffetSecProd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            lblEffetSecProd.BackColor = System.Drawing.Color.Transparent;
-            lblEffetSecProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            lblEffetSecProd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            lblEffetSecProd.Location = new System.Drawing.Point(1232, 90);
-            lblEffetSecProd.Name = "lblEffetSecProd";
-            lblEffetSecProd.Size = new System.Drawing.Size(223, 45);
-            lblEffetSecProd.TabIndex = 31;
-            lblEffetSecProd.Text = "Effets_Sec_Prod";
-            lblEffetSecProd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblEffetSecProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblEffetSecProd.BackColor = System.Drawing.Color.Transparent;
+            this.lblEffetSecProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblEffetSecProd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblEffetSecProd.Location = new System.Drawing.Point(1232, 90);
+            this.lblEffetSecProd.Name = "lblEffetSecProd";
+            this.lblEffetSecProd.Size = new System.Drawing.Size(223, 45);
+            this.lblEffetSecProd.TabIndex = 31;
+            this.lblEffetSecProd.Text = "Effets_Sec_Prod";
+            this.lblEffetSecProd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblRecette
             // 
@@ -340,7 +336,7 @@
             lblOperEtape1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             lblOperEtape1.Location = new System.Drawing.Point(3, 0);
             lblOperEtape1.Name = "lblOperEtape1";
-            lblOperEtape1.Size = new System.Drawing.Size(109, 27);
+            lblOperEtape1.Size = new System.Drawing.Size(108, 27);
             lblOperEtape1.TabIndex = 48;
             lblOperEtape1.Text = "Opération";
             lblOperEtape1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -388,7 +384,7 @@
             label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             label3.Location = new System.Drawing.Point(3, 0);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(109, 25);
+            label3.Size = new System.Drawing.Size(108, 25);
             label3.TabIndex = 48;
             label3.Text = "Matière Impliqué";
             label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -400,7 +396,7 @@
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             label4.Location = new System.Drawing.Point(3, 0);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(109, 25);
+            label4.Size = new System.Drawing.Size(108, 25);
             label4.TabIndex = 48;
             label4.Text = "Matière Impliqué";
             label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -412,7 +408,7 @@
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             label5.Location = new System.Drawing.Point(3, 0);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(116, 25);
+            label5.Size = new System.Drawing.Size(115, 25);
             label5.TabIndex = 48;
             label5.Text = "Matière Impliqué";
             label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -460,7 +456,7 @@
             label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             label10.Location = new System.Drawing.Point(3, 0);
             label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(116, 27);
+            label10.Size = new System.Drawing.Size(115, 27);
             label10.TabIndex = 48;
             label10.Text = "Opération";
             label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -472,7 +468,7 @@
             label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             label11.Location = new System.Drawing.Point(3, 0);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(116, 25);
+            label11.Size = new System.Drawing.Size(115, 25);
             label11.TabIndex = 48;
             label11.Text = "Matière Impliqué";
             label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -582,7 +578,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.41764F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.58236F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 312F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 314F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.button8, 2, 0);
@@ -607,14 +603,14 @@
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel18, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.button5, 2, 1);
             this.tableLayoutPanel4.Controls.Add(this.button7, 2, 2);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(265, 4);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(264, 4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 4;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(261, 216);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(260, 216);
             this.tableLayoutPanel4.TabIndex = 47;
             // 
             // tableLayoutPanel11
@@ -628,7 +624,7 @@
             this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(122, 51);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(121, 51);
             this.tableLayoutPanel11.TabIndex = 56;
             // 
             // comboBox2
@@ -637,7 +633,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(3, 28);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(116, 21);
+            this.comboBox2.Size = new System.Drawing.Size(115, 21);
             this.comboBox2.TabIndex = 52;
             // 
             // tableLayoutPanel12
@@ -646,7 +642,7 @@
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel12.Controls.Add(label6, 0, 0);
             this.tableLayoutPanel12.Controls.Add(this.numericUpDown1, 0, 1);
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(131, 121);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(130, 121);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -668,7 +664,7 @@
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.Controls.Add(label7, 0, 0);
             this.tableLayoutPanel13.Controls.Add(this.numericUpDown2, 0, 1);
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(131, 64);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(130, 64);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 2;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -690,7 +686,7 @@
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel14.Controls.Add(label8, 0, 0);
             this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel15, 0, 1);
-            this.tableLayoutPanel14.Location = new System.Drawing.Point(131, 3);
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(130, 3);
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
             this.tableLayoutPanel14.RowCount = 2;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.2963F));
@@ -741,7 +737,7 @@
             this.tableLayoutPanel16.RowCount = 2;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(122, 54);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(121, 54);
             this.tableLayoutPanel16.TabIndex = 47;
             // 
             // comboBox5
@@ -754,7 +750,7 @@
             "Opération"});
             this.comboBox5.Location = new System.Drawing.Point(3, 30);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(116, 21);
+            this.comboBox5.Size = new System.Drawing.Size(115, 21);
             this.comboBox5.TabIndex = 47;
             // 
             // tableLayoutPanel18
@@ -768,7 +764,7 @@
             this.tableLayoutPanel18.RowCount = 2;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(122, 51);
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(121, 51);
             this.tableLayoutPanel18.TabIndex = 55;
             // 
             // comboBox6
@@ -777,7 +773,7 @@
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Location = new System.Drawing.Point(3, 28);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(116, 21);
+            this.comboBox6.Size = new System.Drawing.Size(115, 21);
             this.comboBox6.TabIndex = 52;
             // 
             // button5
@@ -786,7 +782,7 @@
             this.button5.BackColor = System.Drawing.Color.Maroon;
             this.button5.Font = new System.Drawing.Font("Marlett", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button5.Location = new System.Drawing.Point(212, 92);
+            this.button5.Location = new System.Drawing.Point(211, 92);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(20, 23);
             this.button5.TabIndex = 57;
@@ -799,7 +795,7 @@
             this.button7.BackColor = System.Drawing.Color.Maroon;
             this.button7.Font = new System.Drawing.Font("Marlett", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button7.Location = new System.Drawing.Point(212, 149);
+            this.button7.Location = new System.Drawing.Point(211, 149);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(20, 23);
             this.button7.TabIndex = 58;
@@ -827,7 +823,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(254, 216);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(253, 216);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tableLayoutPanel10
@@ -841,7 +837,7 @@
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(115, 51);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(114, 51);
             this.tableLayoutPanel10.TabIndex = 56;
             // 
             // comboBox4
@@ -850,7 +846,7 @@
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(3, 28);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(109, 21);
+            this.comboBox4.Size = new System.Drawing.Size(108, 21);
             this.comboBox4.TabIndex = 52;
             // 
             // tableLayoutPanel8
@@ -859,7 +855,7 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.Controls.Add(label2, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.numericUpDown4, 0, 1);
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(124, 121);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(123, 121);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -881,7 +877,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.Controls.Add(label1, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.numericUpDown3, 0, 1);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(124, 64);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(123, 64);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -903,7 +899,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.Controls.Add(lblDureeEtape1, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel17, 0, 1);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(124, 3);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(123, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.2963F));
@@ -954,7 +950,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(115, 54);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(114, 54);
             this.tableLayoutPanel5.TabIndex = 47;
             // 
             // comboBox1
@@ -967,7 +963,7 @@
             "Opération"});
             this.comboBox1.Location = new System.Drawing.Point(3, 30);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(109, 21);
+            this.comboBox1.Size = new System.Drawing.Size(108, 21);
             this.comboBox1.TabIndex = 47;
             // 
             // tableLayoutPanel9
@@ -981,7 +977,7 @@
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(115, 51);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(114, 51);
             this.tableLayoutPanel9.TabIndex = 55;
             // 
             // comboBox3
@@ -990,7 +986,7 @@
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(3, 28);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(109, 21);
+            this.comboBox3.Size = new System.Drawing.Size(108, 21);
             this.comboBox3.TabIndex = 52;
             // 
             // button4
@@ -999,7 +995,7 @@
             this.button4.BackColor = System.Drawing.Color.Maroon;
             this.button4.Font = new System.Drawing.Font("Marlett", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Location = new System.Drawing.Point(206, 92);
+            this.button4.Location = new System.Drawing.Point(205, 92);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(20, 23);
             this.button4.TabIndex = 57;
@@ -1012,7 +1008,7 @@
             this.button6.BackColor = System.Drawing.Color.Maroon;
             this.button6.Font = new System.Drawing.Font("Marlett", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button6.Location = new System.Drawing.Point(206, 149);
+            this.button6.Location = new System.Drawing.Point(205, 149);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(20, 23);
             this.button6.TabIndex = 58;
@@ -1025,7 +1021,7 @@
             this.button8.BackColor = System.Drawing.Color.White;
             this.button8.Font = new System.Drawing.Font("Marlett", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button8.Location = new System.Drawing.Point(646, 74);
+            this.button8.Location = new System.Drawing.Point(645, 74);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(80, 78);
             this.button8.TabIndex = 58;
@@ -1113,12 +1109,12 @@
             this.Controls.Add(lblEtapes);
             this.Controls.Add(lblNomenclat);
             this.Controls.Add(lblRecette);
-            this.Controls.Add(lblEffetSecProd);
+            this.Controls.Add(this.lblEffetSecProd);
             this.Controls.Add(lblEffetSec);
             this.Controls.Add(lblSymptome);
-            this.Controls.Add(lblSymptProd);
-            this.Controls.Add(lblVersionProduit);
-            this.Controls.Add(lblNomProduit);
+            this.Controls.Add(this.lblSymptProd);
+            this.Controls.Add(this.lblVersionProduit);
+            this.Controls.Add(this.lblNomProduit);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Name = "RechercheProduit";
             this.Text = "Recherche Produit";
@@ -1202,5 +1198,9 @@
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.Label lblNomProduit;
+        private System.Windows.Forms.Label lblVersionProduit;
+        private System.Windows.Forms.Label lblSymptProd;
+        private System.Windows.Forms.Label lblEffetSecProd;
     }
 }

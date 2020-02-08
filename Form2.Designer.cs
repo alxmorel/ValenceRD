@@ -34,8 +34,9 @@
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label3;
-            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label lblTabNomGenProd;
             System.Windows.Forms.Label lblColIdProdtbl;
+            System.Windows.Forms.Label lblTabNomScienProd;
             this.btnCreerProduit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tblDataUpgrade = new System.Windows.Forms.TableLayoutPanel();
@@ -45,14 +46,16 @@
             this.inputTabNomProduit = new System.Windows.Forms.TextBox();
             this.lblTabPhaseCourante = new System.Windows.Forms.Label();
             this.lblIdSelectFromInput = new System.Windows.Forms.Label();
+            this.inputTabNomScienProd = new System.Windows.Forms.TextBox();
             lblCreaProduit = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
+            lblTabNomGenProd = new System.Windows.Forms.Label();
             lblColIdProdtbl = new System.Windows.Forms.Label();
+            lblTabNomScienProd = new System.Windows.Forms.Label();
             this.tblDataUpgrade.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,7 +89,7 @@
             label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label6.ForeColor = System.Drawing.Color.MidnightBlue;
-            label6.Location = new System.Drawing.Point(1183, 11);
+            label6.Location = new System.Drawing.Point(1214, 11);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(163, 50);
             label6.TabIndex = 28;
@@ -98,7 +101,7 @@
             label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.MidnightBlue;
-            label5.Location = new System.Drawing.Point(925, 20);
+            label5.Location = new System.Drawing.Point(1016, 20);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(163, 33);
             label5.TabIndex = 27;
@@ -110,9 +113,9 @@
             label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.MidnightBlue;
-            label4.Location = new System.Drawing.Point(664, 18);
+            label4.Location = new System.Drawing.Point(826, 18);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(173, 36);
+            label4.Size = new System.Drawing.Size(172, 36);
             label4.TabIndex = 26;
             label4.Text = "Symptome";
             label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -122,33 +125,33 @@
             label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.ForeColor = System.Drawing.Color.MidnightBlue;
-            label3.Location = new System.Drawing.Point(493, 19);
+            label3.Location = new System.Drawing.Point(702, 19);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(110, 34);
             label3.TabIndex = 25;
             label3.Text = "N° Version";
             label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label1
+            // lblTabNomGenProd
             // 
-            label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.ForeColor = System.Drawing.Color.MidnightBlue;
-            label1.Location = new System.Drawing.Point(261, 21);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(163, 31);
-            label1.TabIndex = 24;
-            label1.Text = "Nom Produit";
-            label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            lblTabNomGenProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            lblTabNomGenProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblTabNomGenProd.ForeColor = System.Drawing.Color.MidnightBlue;
+            lblTabNomGenProd.Location = new System.Drawing.Point(400, 21);
+            lblTabNomGenProd.Name = "lblTabNomGenProd";
+            lblTabNomGenProd.Size = new System.Drawing.Size(289, 31);
+            lblTabNomGenProd.TabIndex = 24;
+            lblTabNomGenProd.Text = "Nom Générique";
+            lblTabNomGenProd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblColIdProdtbl
             // 
             lblColIdProdtbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             lblColIdProdtbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lblColIdProdtbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            lblColIdProdtbl.Location = new System.Drawing.Point(22, 18);
+            lblColIdProdtbl.Location = new System.Drawing.Point(4, 18);
             lblColIdProdtbl.Name = "lblColIdProdtbl";
-            lblColIdProdtbl.Size = new System.Drawing.Size(163, 36);
+            lblColIdProdtbl.Size = new System.Drawing.Size(133, 36);
             lblColIdProdtbl.TabIndex = 23;
             lblColIdProdtbl.Text = "Identifiant Produit";
             lblColIdProdtbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -186,25 +189,28 @@
             this.tblDataUpgrade.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tblDataUpgrade.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tblDataUpgrade.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tblDataUpgrade.ColumnCount = 6;
-            this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.59514F));
-            this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.369099F));
-            this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.16595F));
+            this.tblDataUpgrade.ColumnCount = 7;
+            this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.72529F));
+            this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.45851F));
+            this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.8114F));
+            this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.8969F));
             this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.02146F));
             this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.09442F));
-            this.tblDataUpgrade.Controls.Add(this.lblTabNumVersion, 2, 1);
-            this.tblDataUpgrade.Controls.Add(this.inputTabSymptome, 3, 1);
-            this.tblDataUpgrade.Controls.Add(this.lblTabDateInsertProd, 5, 1);
-            this.tblDataUpgrade.Controls.Add(this.inputTabNomProduit, 1, 1);
-            this.tblDataUpgrade.Controls.Add(label6, 5, 0);
-            this.tblDataUpgrade.Controls.Add(label5, 4, 0);
-            this.tblDataUpgrade.Controls.Add(label4, 3, 0);
-            this.tblDataUpgrade.Controls.Add(label3, 2, 0);
-            this.tblDataUpgrade.Controls.Add(label1, 1, 0);
+            this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tblDataUpgrade.Controls.Add(this.inputTabNomScienProd, 1, 1);
+            this.tblDataUpgrade.Controls.Add(lblTabNomScienProd, 1, 0);
             this.tblDataUpgrade.Controls.Add(lblColIdProdtbl, 0, 0);
-            this.tblDataUpgrade.Controls.Add(this.lblTabPhaseCourante, 4, 1);
             this.tblDataUpgrade.Controls.Add(this.lblIdSelectFromInput, 0, 1);
+            this.tblDataUpgrade.Controls.Add(label6, 6, 0);
+            this.tblDataUpgrade.Controls.Add(this.lblTabDateInsertProd, 6, 1);
+            this.tblDataUpgrade.Controls.Add(label5, 5, 0);
+            this.tblDataUpgrade.Controls.Add(this.lblTabPhaseCourante, 5, 1);
+            this.tblDataUpgrade.Controls.Add(this.inputTabSymptome, 4, 1);
+            this.tblDataUpgrade.Controls.Add(label4, 4, 0);
+            this.tblDataUpgrade.Controls.Add(label3, 3, 0);
+            this.tblDataUpgrade.Controls.Add(this.lblTabNumVersion, 3, 1);
+            this.tblDataUpgrade.Controls.Add(lblTabNomGenProd, 2, 0);
+            this.tblDataUpgrade.Controls.Add(this.inputTabNomProduit, 2, 1);
             this.tblDataUpgrade.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tblDataUpgrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tblDataUpgrade.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -221,7 +227,7 @@
             this.lblTabNumVersion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTabNumVersion.AutoSize = true;
             this.lblTabNumVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTabNumVersion.Location = new System.Drawing.Point(537, 101);
+            this.lblTabNumVersion.Location = new System.Drawing.Point(746, 101);
             this.lblTabNumVersion.Name = "lblTabNumVersion";
             this.lblTabNumVersion.Size = new System.Drawing.Size(23, 25);
             this.lblTabNumVersion.TabIndex = 35;
@@ -240,10 +246,10 @@
             "Identifiant 1",
             "Identifiant 2",
             "Identifiant 3"});
-            this.inputTabSymptome.Location = new System.Drawing.Point(641, 103);
+            this.inputTabSymptome.Location = new System.Drawing.Point(826, 103);
             this.inputTabSymptome.MaxDropDownItems = 100;
             this.inputTabSymptome.Name = "inputTabSymptome";
-            this.inputTabSymptome.Size = new System.Drawing.Size(219, 21);
+            this.inputTabSymptome.Size = new System.Drawing.Size(172, 21);
             this.inputTabSymptome.TabIndex = 34;
             // 
             // lblTabDateInsertProd
@@ -251,7 +257,7 @@
             this.lblTabDateInsertProd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTabDateInsertProd.AutoSize = true;
             this.lblTabDateInsertProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTabDateInsertProd.Location = new System.Drawing.Point(1201, 101);
+            this.lblTabDateInsertProd.Location = new System.Drawing.Point(1233, 101);
             this.lblTabDateInsertProd.Name = "lblTabDateInsertProd";
             this.lblTabDateInsertProd.Size = new System.Drawing.Size(126, 25);
             this.lblTabDateInsertProd.TabIndex = 35;
@@ -261,9 +267,9 @@
             // inputTabNomProduit
             // 
             this.inputTabNomProduit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.inputTabNomProduit.Location = new System.Drawing.Point(230, 104);
+            this.inputTabNomProduit.Location = new System.Drawing.Point(400, 104);
             this.inputTabNomProduit.Name = "inputTabNomProduit";
-            this.inputTabNomProduit.Size = new System.Drawing.Size(225, 20);
+            this.inputTabNomProduit.Size = new System.Drawing.Size(289, 20);
             this.inputTabNomProduit.TabIndex = 31;
             // 
             // lblTabPhaseCourante
@@ -271,7 +277,7 @@
             this.lblTabPhaseCourante.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTabPhaseCourante.AutoSize = true;
             this.lblTabPhaseCourante.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTabPhaseCourante.Location = new System.Drawing.Point(923, 101);
+            this.lblTabPhaseCourante.Location = new System.Drawing.Point(1014, 101);
             this.lblTabPhaseCourante.Name = "lblTabPhaseCourante";
             this.lblTabPhaseCourante.Size = new System.Drawing.Size(167, 25);
             this.lblTabPhaseCourante.TabIndex = 34;
@@ -283,12 +289,32 @@
             this.lblIdSelectFromInput.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIdSelectFromInput.AutoSize = true;
             this.lblIdSelectFromInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdSelectFromInput.Location = new System.Drawing.Point(32, 101);
+            this.lblIdSelectFromInput.Location = new System.Drawing.Point(4, 89);
             this.lblIdSelectFromInput.Name = "lblIdSelectFromInput";
-            this.lblIdSelectFromInput.Size = new System.Drawing.Size(143, 25);
+            this.lblIdSelectFromInput.Size = new System.Drawing.Size(132, 50);
             this.lblIdSelectFromInput.TabIndex = 35;
             this.lblIdSelectFromInput.Text = "id_Produit_gen";
             this.lblIdSelectFromInput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTabNomScienProd
+            // 
+            lblTabNomScienProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            lblTabNomScienProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblTabNomScienProd.ForeColor = System.Drawing.Color.MidnightBlue;
+            lblTabNomScienProd.Location = new System.Drawing.Point(144, 21);
+            lblTabNomScienProd.Name = "lblTabNomScienProd";
+            lblTabNomScienProd.Size = new System.Drawing.Size(249, 31);
+            lblTabNomScienProd.TabIndex = 33;
+            lblTabNomScienProd.Text = "Nom Scientifique";
+            lblTabNomScienProd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // inputTabNomScienProd
+            // 
+            this.inputTabNomScienProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inputTabNomScienProd.Location = new System.Drawing.Point(149, 104);
+            this.inputTabNomScienProd.Name = "inputTabNomScienProd";
+            this.inputTabNomScienProd.Size = new System.Drawing.Size(239, 20);
+            this.inputTabNomScienProd.TabIndex = 33;
             // 
             // PageCreaProduit
             // 
@@ -320,5 +346,6 @@
         private System.Windows.Forms.TextBox inputTabNomProduit;
         private System.Windows.Forms.Label lblTabPhaseCourante;
         private System.Windows.Forms.Label lblIdSelectFromInput;
+        private System.Windows.Forms.TextBox inputTabNomScienProd;
     }
 }
