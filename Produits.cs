@@ -9,16 +9,18 @@ namespace ValenceRD
     public class Produits
     {
         public int id_Produit { get; set; }
+
         public String nom_Scientifique { get; set; }
-        public String symptome { get; set; }
 
         public String version { get; set; }
 
+        public String symptome { get; set; }
+
         public String phase_Courante { get; set; }
 
-        public String date_insertion_produit { get; set; }
+        public DateTime date_insertion_produit { get; set; }
 
-        public String date_derniere_validation { get; set; }
+        public DateTime date_derniere_validation { get; set; }
 
     }
 }

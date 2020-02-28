@@ -69,6 +69,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjoutMatiere.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjoutMatiere.Designer.cs">
+      <DependentUpon>AjoutMatiere.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBConnection.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -94,6 +100,7 @@
     <Compile Include="Form4.Designer.cs">
       <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ingredients.cs" />
     <Compile Include="Produits.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

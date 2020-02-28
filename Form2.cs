@@ -67,8 +67,8 @@ namespace ValenceRD
                 reader.Close();
                 dbCon.Close();
             }
-            //set label Date du jour a ajourd'hui
-            lblTabDateInsertProd.Text = DateTime.Now.ToString();
+            //set label Date du jour à aujourd'hui
+            lblTabDateInsertProd.Text = DateTime.Today.ToString("dd-MM-yyyy");
 
         }
 
@@ -96,17 +96,44 @@ namespace ValenceRD
 
                 if (dbCon.IsConnect())
                 {
+
                     /*MenaOvh*/ //string query = "SELECT Produit.idProduit, Produit.nomScientifique, Traitement_Syptome.libelle FROM Produit, Traitement_Syptome, Traiter where Produit.idProduit = Traiter.idProduit and Traiter.idTraitementSymptome = Traitement_Syptome.idTraitementSymptome";
-                    /*Localhost*/  string queryInsertProduit = "Insert into produit values ("+lblIdSelectFromInput.Text+",\""+ inputTabNomScienProd.Text+"\", \""+ inputTabNomProduit.Text+"\")";
-                                   string queryInsertTraiter = "Insert into traiter values (" + lblIdSelectFromInput + ", idTraitementSymptome)";
-                    var cmd = new MySqlCommand(queryInsertProduit, dbCon.Connection);
-                    var cmd1 = new MySqlCommand(queryInsertTraiter, dbCon.Connection);
-                    cmd.ExecuteNonQuery();
-                   // cmd1.ExecuteNonQuery();
+                    /*Localhost*/  String queryInsertProduit = "Insert into produit values ("+lblIdSelectFromInput.Text+",\""+ inputTabNomScienProd.Text+"\", \""+ inputTabNomProduit.Text+"\")";
+                                   String queryIdSympt = "SELECT traitement_symptome.idTraitementSymptome FROM traitement_symptome where traitement_symptome.libelle = \"" + inputTabSymptome.SelectedItem.ToString() + "\"";
+                                   
+                    MySqlCommand cmdInsertProd = new MySqlCommand(queryInsertProduit, dbCon.Connection);
+                    MySqlCommand cmdSelectIdSympt = new MySqlCommand(queryIdSympt, dbCon.Connection);
+
+                    cmdInsertProd.ExecuteNonQuery(); //Insert le produit dans la table produit
+
+                    var reader = cmdSelectIdSympt.ExecuteReader(); //Récupère l'identifiant du symptome qu'il traite
+                    var idSymtpomeSelect = 1;
+
+                    if (reader.HasRows)
+                    {
+                        Console.WriteLine("Execution Requète Insertion Traiter");
+                        reader.Read();
+                        idSymtpomeSelect = reader.GetInt32(0);
+                    }
+                    reader.Close();
+
+                    String queryInsertTraiter = "Insert into traiter values (" + Int32.Parse(lblIdSelectFromInput.Text) + ", " + idSymtpomeSelect+ ")";
+                    MySqlCommand cmdInsertTraiter = new MySqlCommand(queryInsertTraiter, dbCon.Connection);
+                    cmdInsertTraiter.ExecuteNonQuery(); // Insertion dans la table traiter
+
+                    //string formatForMySql = lblTabDateInsertProd.Text.ToString("yyyy-MM-dd HH:mm:ss");
+                    //DateTime Dateinsertprod = Convert.ToDateTime(lblTabDateInsertProd.Text);
+
+                    String queryInsertValider = "Insert into valider values (1, 1, "+ Int32.Parse(lblIdSelectFromInput.Text)+", \""+ lblTabDateInsertProd.Text + "\", \"1999-01-01\" ,0, \"Mise en place des protocoles de recherches\" )";
+                    var cmd3 = new MySqlCommand(queryInsertValider, dbCon.Connection);
+                    cmd3.ExecuteNonQuery();
+
+                    dbCon.Close();
                 }
 
             }
 
+            
             RechercheProduit rechProd = new RechercheProduit();
             rechProd.Show();
             this.Hide();

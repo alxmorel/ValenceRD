@@ -40,13 +40,13 @@
             this.btnCreerProduit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tblDataUpgrade = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTabNumVersion = new System.Windows.Forms.Label();
-            this.inputTabSymptome = new System.Windows.Forms.ComboBox();
-            this.lblTabDateInsertProd = new System.Windows.Forms.Label();
-            this.inputTabNomProduit = new System.Windows.Forms.TextBox();
-            this.lblTabPhaseCourante = new System.Windows.Forms.Label();
-            this.lblIdSelectFromInput = new System.Windows.Forms.Label();
             this.inputTabNomScienProd = new System.Windows.Forms.TextBox();
+            this.lblIdSelectFromInput = new System.Windows.Forms.Label();
+            this.lblTabDateInsertProd = new System.Windows.Forms.Label();
+            this.lblTabPhaseCourante = new System.Windows.Forms.Label();
+            this.inputTabSymptome = new System.Windows.Forms.ComboBox();
+            this.lblTabNumVersion = new System.Windows.Forms.Label();
+            this.inputTabNomProduit = new System.Windows.Forms.TextBox();
             lblCreaProduit = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
@@ -89,7 +89,7 @@
             label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label6.ForeColor = System.Drawing.Color.MidnightBlue;
-            label6.Location = new System.Drawing.Point(1214, 11);
+            label6.Location = new System.Drawing.Point(1210, 11);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(163, 50);
             label6.TabIndex = 28;
@@ -101,7 +101,7 @@
             label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.MidnightBlue;
-            label5.Location = new System.Drawing.Point(1016, 20);
+            label5.Location = new System.Drawing.Point(1008, 20);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(163, 33);
             label5.TabIndex = 27;
@@ -113,9 +113,9 @@
             label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.MidnightBlue;
-            label4.Location = new System.Drawing.Point(826, 18);
+            label4.Location = new System.Drawing.Point(820, 18);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(172, 36);
+            label4.Size = new System.Drawing.Size(171, 36);
             label4.TabIndex = 26;
             label4.Text = "Symptome";
             label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -125,7 +125,7 @@
             label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.ForeColor = System.Drawing.Color.MidnightBlue;
-            label3.Location = new System.Drawing.Point(702, 19);
+            label3.Location = new System.Drawing.Point(697, 19);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(110, 34);
             label3.TabIndex = 25;
@@ -137,9 +137,9 @@
             lblTabNomGenProd.Anchor = System.Windows.Forms.AnchorStyles.None;
             lblTabNomGenProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lblTabNomGenProd.ForeColor = System.Drawing.Color.MidnightBlue;
-            lblTabNomGenProd.Location = new System.Drawing.Point(400, 21);
+            lblTabNomGenProd.Location = new System.Drawing.Point(397, 21);
             lblTabNomGenProd.Name = "lblTabNomGenProd";
-            lblTabNomGenProd.Size = new System.Drawing.Size(289, 31);
+            lblTabNomGenProd.Size = new System.Drawing.Size(287, 31);
             lblTabNomGenProd.TabIndex = 24;
             lblTabNomGenProd.Text = "Nom Générique";
             lblTabNomGenProd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -151,10 +151,22 @@
             lblColIdProdtbl.ForeColor = System.Drawing.Color.MidnightBlue;
             lblColIdProdtbl.Location = new System.Drawing.Point(4, 18);
             lblColIdProdtbl.Name = "lblColIdProdtbl";
-            lblColIdProdtbl.Size = new System.Drawing.Size(133, 36);
+            lblColIdProdtbl.Size = new System.Drawing.Size(132, 36);
             lblColIdProdtbl.TabIndex = 23;
             lblColIdProdtbl.Text = "Identifiant Produit";
             lblColIdProdtbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblTabNomScienProd
+            // 
+            lblTabNomScienProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            lblTabNomScienProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblTabNomScienProd.ForeColor = System.Drawing.Color.MidnightBlue;
+            lblTabNomScienProd.Location = new System.Drawing.Point(143, 21);
+            lblTabNomScienProd.Name = "lblTabNomScienProd";
+            lblTabNomScienProd.Size = new System.Drawing.Size(247, 31);
+            lblTabNomScienProd.TabIndex = 33;
+            lblTabNomScienProd.Text = "Nom Scientifique";
+            lblTabNomScienProd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnCreerProduit
             // 
@@ -196,7 +208,7 @@
             this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.8969F));
             this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.02146F));
             this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.09442F));
-            this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tblDataUpgrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 208F));
             this.tblDataUpgrade.Controls.Add(this.inputTabNomScienProd, 1, 1);
             this.tblDataUpgrade.Controls.Add(lblTabNomScienProd, 1, 0);
             this.tblDataUpgrade.Controls.Add(lblColIdProdtbl, 0, 0);
@@ -222,67 +234,13 @@
             this.tblDataUpgrade.Size = new System.Drawing.Size(1399, 156);
             this.tblDataUpgrade.TabIndex = 32;
             // 
-            // lblTabNumVersion
+            // inputTabNomScienProd
             // 
-            this.lblTabNumVersion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTabNumVersion.AutoSize = true;
-            this.lblTabNumVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTabNumVersion.Location = new System.Drawing.Point(746, 101);
-            this.lblTabNumVersion.Name = "lblTabNumVersion";
-            this.lblTabNumVersion.Size = new System.Drawing.Size(23, 25);
-            this.lblTabNumVersion.TabIndex = 35;
-            this.lblTabNumVersion.Text = "1";
-            this.lblTabNumVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // inputTabSymptome
-            // 
-            this.inputTabSymptome.AccessibleName = "";
-            this.inputTabSymptome.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.inputTabSymptome.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.inputTabSymptome.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.inputTabSymptome.FormattingEnabled = true;
-            this.inputTabSymptome.ItemHeight = 13;
-            this.inputTabSymptome.Items.AddRange(new object[] {
-            "Identifiant 1",
-            "Identifiant 2",
-            "Identifiant 3"});
-            this.inputTabSymptome.Location = new System.Drawing.Point(826, 103);
-            this.inputTabSymptome.MaxDropDownItems = 100;
-            this.inputTabSymptome.Name = "inputTabSymptome";
-            this.inputTabSymptome.Size = new System.Drawing.Size(172, 21);
-            this.inputTabSymptome.TabIndex = 34;
-            // 
-            // lblTabDateInsertProd
-            // 
-            this.lblTabDateInsertProd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTabDateInsertProd.AutoSize = true;
-            this.lblTabDateInsertProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTabDateInsertProd.Location = new System.Drawing.Point(1233, 101);
-            this.lblTabDateInsertProd.Name = "lblTabDateInsertProd";
-            this.lblTabDateInsertProd.Size = new System.Drawing.Size(126, 25);
-            this.lblTabDateInsertProd.TabIndex = 35;
-            this.lblTabDateInsertProd.Text = "date_du_jour";
-            this.lblTabDateInsertProd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // inputTabNomProduit
-            // 
-            this.inputTabNomProduit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.inputTabNomProduit.Location = new System.Drawing.Point(400, 104);
-            this.inputTabNomProduit.Name = "inputTabNomProduit";
-            this.inputTabNomProduit.Size = new System.Drawing.Size(289, 20);
-            this.inputTabNomProduit.TabIndex = 31;
-            // 
-            // lblTabPhaseCourante
-            // 
-            this.lblTabPhaseCourante.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTabPhaseCourante.AutoSize = true;
-            this.lblTabPhaseCourante.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTabPhaseCourante.Location = new System.Drawing.Point(1014, 101);
-            this.lblTabPhaseCourante.Name = "lblTabPhaseCourante";
-            this.lblTabPhaseCourante.Size = new System.Drawing.Size(167, 25);
-            this.lblTabPhaseCourante.TabIndex = 34;
-            this.lblTabPhaseCourante.Text = "Recherche et Dev";
-            this.lblTabPhaseCourante.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.inputTabNomScienProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inputTabNomScienProd.Location = new System.Drawing.Point(147, 104);
+            this.inputTabNomScienProd.Name = "inputTabNomScienProd";
+            this.inputTabNomScienProd.Size = new System.Drawing.Size(239, 20);
+            this.inputTabNomScienProd.TabIndex = 33;
             // 
             // lblIdSelectFromInput
             // 
@@ -296,25 +254,63 @@
             this.lblIdSelectFromInput.Text = "id_Produit_gen";
             this.lblIdSelectFromInput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblTabNomScienProd
+            // lblTabDateInsertProd
             // 
-            lblTabNomScienProd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            lblTabNomScienProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblTabNomScienProd.ForeColor = System.Drawing.Color.MidnightBlue;
-            lblTabNomScienProd.Location = new System.Drawing.Point(144, 21);
-            lblTabNomScienProd.Name = "lblTabNomScienProd";
-            lblTabNomScienProd.Size = new System.Drawing.Size(249, 31);
-            lblTabNomScienProd.TabIndex = 33;
-            lblTabNomScienProd.Text = "Nom Scientifique";
-            lblTabNomScienProd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblTabDateInsertProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTabDateInsertProd.AutoSize = true;
+            this.lblTabDateInsertProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTabDateInsertProd.Location = new System.Drawing.Point(1229, 101);
+            this.lblTabDateInsertProd.Name = "lblTabDateInsertProd";
+            this.lblTabDateInsertProd.Size = new System.Drawing.Size(126, 25);
+            this.lblTabDateInsertProd.TabIndex = 35;
+            this.lblTabDateInsertProd.Text = "date_du_jour";
+            this.lblTabDateInsertProd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // inputTabNomScienProd
+            // lblTabPhaseCourante
             // 
-            this.inputTabNomScienProd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.inputTabNomScienProd.Location = new System.Drawing.Point(149, 104);
-            this.inputTabNomScienProd.Name = "inputTabNomScienProd";
-            this.inputTabNomScienProd.Size = new System.Drawing.Size(239, 20);
-            this.inputTabNomScienProd.TabIndex = 33;
+            this.lblTabPhaseCourante.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTabPhaseCourante.AutoSize = true;
+            this.lblTabPhaseCourante.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTabPhaseCourante.Location = new System.Drawing.Point(1017, 89);
+            this.lblTabPhaseCourante.Name = "lblTabPhaseCourante";
+            this.lblTabPhaseCourante.Size = new System.Drawing.Size(146, 50);
+            this.lblTabPhaseCourante.TabIndex = 34;
+            this.lblTabPhaseCourante.Text = "Recherche et développement";
+            this.lblTabPhaseCourante.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // inputTabSymptome
+            // 
+            this.inputTabSymptome.AccessibleName = "";
+            this.inputTabSymptome.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inputTabSymptome.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.inputTabSymptome.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.inputTabSymptome.FormattingEnabled = true;
+            this.inputTabSymptome.ItemHeight = 13;
+            this.inputTabSymptome.Location = new System.Drawing.Point(820, 103);
+            this.inputTabSymptome.MaxDropDownItems = 100;
+            this.inputTabSymptome.Name = "inputTabSymptome";
+            this.inputTabSymptome.Size = new System.Drawing.Size(171, 21);
+            this.inputTabSymptome.TabIndex = 34;
+            // 
+            // lblTabNumVersion
+            // 
+            this.lblTabNumVersion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTabNumVersion.AutoSize = true;
+            this.lblTabNumVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTabNumVersion.Location = new System.Drawing.Point(740, 101);
+            this.lblTabNumVersion.Name = "lblTabNumVersion";
+            this.lblTabNumVersion.Size = new System.Drawing.Size(23, 25);
+            this.lblTabNumVersion.TabIndex = 35;
+            this.lblTabNumVersion.Text = "1";
+            this.lblTabNumVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // inputTabNomProduit
+            // 
+            this.inputTabNomProduit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inputTabNomProduit.Location = new System.Drawing.Point(397, 104);
+            this.inputTabNomProduit.Name = "inputTabNomProduit";
+            this.inputTabNomProduit.Size = new System.Drawing.Size(287, 20);
+            this.inputTabNomProduit.TabIndex = 31;
             // 
             // PageCreaProduit
             // 
