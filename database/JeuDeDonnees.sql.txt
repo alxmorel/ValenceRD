@@ -1,0 +1,129 @@
+/*Produit*/
+INSERT INTO Produit VALUES(1, "Huile de coco", "Huile de coco");
+INSERT INTO Produit VALUES(2, "Smecta", "Diosmectite");
+INSERT INTO Produit VALUES(3, "Efferalgan", "IUPAC");
+INSERT INTO Produit VALUES(4, "Baume du tigre", "Baume du tigre");
+INSERT INTO Produit VALUES(5, "Huile de lavande", "Huile de lavande");
+INSERT INTO Produit VALUES(6, "Doliprane", "Paracetamol");
+INSERT INTO Produit VALUES(7, "Efferalgan", "IUPAC");
+INSERT INTO Produit VALUES(8, "Dafalgan", "acétaminophène");
+INSERT INTO Produit VALUES(9, "", "");
+INSERT INTO Produit VALUES(10, "", "");
+
+/*Dosage*/
+INSERT INTO Dosage VALUES(1, 500, "milligrammes");
+INSERT INTO Dosage VALUES(2, 1000, "milligrammes");
+INSERT INTO Dosage VALUES(3, 2, "cuillères à café");
+INSERT INTO Dosage VALUES(4, 10, "grammes");
+INSERT INTO Dosage VALUES(5, 1, "suppositoire");
+INSERT INTO Dosage VALUES(6, 5, "centilitres");
+INSERT INTO Dosage VALUES(7, 2, "centilitres");
+INSERT INTO Dosage VALUES(8, 80, "milligrammes");
+
+/*Frequence*/
+INSERT INTO Frequence VALUES(1, "2 fois par jour matin et soir");
+INSERT INTO Frequence VALUES(2, "1 fois par jour le midi");
+INSERT INTO Frequence VALUES(3, "Matin midi et soir");
+INSERT INTO Frequence VALUES(4, "Après chaque repas");
+INSERT INTO Frequence VALUES(5, "1 fois par jour le matin");
+INSERT INTO Frequence VALUES(6, "1 fois le soir");
+
+
+/*Administrer*/
+INSERT INTO Administrer VALUES(1, 5, 1);
+INSERT INTO Administrer VALUES(2, 5, 3);
+INSERT INTO Administrer VALUES(4, 1, 1);
+INSERT INTO Administrer VALUES(3, 1, 4);
+INSERT INTO Administrer VALUES(2, 1, 2);
+INSERT INTO Administrer VALUES(1, 1, 4);
+
+
+/*Traitement_symptome*/
+INSERT INTO Traitement_symptome VALUES(1, "Maux de tête");
+INSERT INTO Traitement_symptome VALUES(2, "Gastro");
+INSERT INTO Traitement_symptome VALUES(3, "Maux de dos");
+
+/*Traiter*/
+INSERT INTO Traiter VALUES(1,1);
+INSERT INTO Traiter VALUES(3,1);
+INSERT INTO Traiter VALUES(6,1);
+INSERT INTO Traiter VALUES(7,1);
+INSERT INTO Traiter VALUES(2,2);
+INSERT INTO Traiter VALUES(5,3);
+INSERT INTO Traiter VALUES(4,3);
+
+
+/*Effet Secondaire*/
+INSERT INTO Effet_Secondaire VALUES(1,"Troubles de la vision");
+INSERT INTO Effet_Secondaire VALUES(2,"Plaques rouges");
+INSERT INTO Effet_Secondaire VALUES(3,"Démengeaisons");
+INSERT INTO Effet_Secondaire VALUES(4,"Baisse de morale");
+INSERT INTO Effet_Secondaire VALUES(5,"");
+INSERT INTO Effet_Secondaire VALUES(6,"");
+
+/*Affecter*/
+INSERT INTO Affecter VALUES(1, 1);
+INSERT INTO Affecter VALUES(1, 2);
+INSERT INTO Affecter VALUES(2, 1);
+INSERT INTO Affecter VALUES(2, 3);
+
+/*Version*/
+INSERT INTO Version VALUES(1, "Premiere version");
+INSERT INTO Version VALUES(2, "Deuxieme version");
+INSERT INTO Version VALUES(3, "Troisieme version");
+INSERT INTO Version VALUES(4, "Quatrieme version");
+
+/*Phase*/
+INSERT INTO Phase VALUES(1 , "Recherche et développement");
+INSERT INTO Phase VALUES(2 , "Test animaux");
+INSERT INTO Phase VALUES(3 , "Test humain");
+INSERT INTO Phase VALUES(4 , "Production");
+INSERT INTO Phase VALUES(5 , "Commercialisation");
+
+/*Valider*/
+INSERT INTO Valider VALUES(1, 1, 1, "1999-01-07", "1999-12-01", 1, "Mise en place des protocoles de recherches");
+INSERT INTO Valider VALUES(1, 2, 2,  "2018-11-07",  "2019-03-07", 0, "En attente de validation par les chercheurs" );
+INSERT INTO Valider VALUES(2, 2, 2, "2020-02-03", "2020-02-04" ,1 , "En cours de développement");
+
+/*Etape*/
+INSERT INTO Etape VALUES(0,"Initiale");
+INSERT INTO Etape VALUES(1,"Mélanger");
+INSERT INTO Etape VALUES(2,"Couper");
+INSERT INTO Etape VALUES(3,"Faire bouillir");
+INSERT INTO Etape VALUES(4, "Etalonner");
+
+
+
+/*Nomeclature*/
+INSERT INTO Nomenclature VALUES(1, "N-(4-hydroxyphényl)");
+INSERT INTO Nomenclature VALUES(2, "N-(4-hydroxyphényl)");
+INSERT INTO Nomenclature VALUES(3, "N-(4-hydroxyphenyl)ethanamide, N-(4-hydroxyphenyl)acetamide");
+INSERT INTO Nomenclature VALUES(4, "Saccharose");
+INSERT INTO Nomenclature VALUES(5, "Alcool");
+
+
+/*Ressource*/
+INSERT INTO Ressource VALUES(1,"Bouin","Sarah");
+INSERT INTO Ressource VALUES(2,"Montenegro","Maxime");
+INSERT INTO Ressource VALUES(3,"Boucharlat","Pierre");
+INSERT INTO Ressource VALUES(4,"Nicaise","Coralie");
+
+/*Manipuler*/
+INSERT INTO Manipuler VALUES(1, 1, 2, 0.5, "g");
+INSERT INTO Manipuler VALUES(1, 2, 3, 0.1, "g");
+INSERT INTO Manipuler VALUES(2, 3, 4, 2, "cl");
+INSERT INTO Manipuler VALUES(3, 4, 1, 2.5, "mg");
+INSERT INTO Manipuler VALUES(2, 4, 2, 2.5, "g");
+
+/*Travailler*/
+INSERT INTO Travailler VALUES(1,1);
+INSERT INTO Travailler VALUES(2,1);
+INSERT INTO Travailler VALUES(3,2);
+INSERT INTO Travailler VALUES(4,2);
+
+/*Recette*/
+INSERT INTO Recette VALUES(1,2,0.5);
+INSERT INTO Recette VALUES(2,1,0.5);
+INSERT INTO Recette VALUES(4,3,3);
+INSERT INTO Recette VALUES(2,3,0.2);
+INSERT INTO Recette VALUES(3,3,10);

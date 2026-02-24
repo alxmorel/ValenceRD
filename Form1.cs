@@ -53,8 +53,18 @@ namespace ValenceRD
             {
                 /*MenaOvh*/ //string query = "SELECT Produit.idProduit, Produit.nomScientifique, Traitement_Syptome.libelle FROM Produit, Traitement_Syptome, Traiter where Produit.idProduit = Traiter.idProduit and Traiter.idTraitementSymptome = Traitement_Syptome.idTraitementSymptome order by idProduit";
                 /*Localhost*/
-                string query = "SELECT produit.idProduit, produit.nomScientifique, version.commentaire, traitement_Symptome.libelle, phase.libelle, valider.dateInsertion, valider.dateValidation FROM produit left outer join traiter on produit.idProduit = traiter.idProduit left outer join traitement_symptome on traiter.idTraitementSymptome = traitement_Symptome.idTraitementSymptome LEFT OUTER JOIN valider ON produit.idProduit = valider.idProduit LEFT OUTER JOIN version on valider.idVersion = version.idVersion LEFT OUTER JOIN phase on valider.idPhase = phase.idPhase order by idProduit";
-               
+                //string query = "SELECT produit.idProduit, produit.nomScientifique, version.commentaire, traitement_Symptome.libelle, phase.libelle, valider.dateInsertion, valider.dateValidation FROM produit left outer join traiter on produit.idProduit = traiter.idProduit left outer join traitement_symptome on traiter.idTraitementSymptome = traitement_Symptome.idTraitementSymptome LEFT OUTER JOIN valider ON produit.idProduit = valider.idProduit LEFT OUTER JOIN version on valider.idVersion = version.idVersion LEFT OUTER JOIN phase on valider.idPhase = phase.idPhase order by idProduit";
+
+                string query = "SELECT distinct produit.idProduit, produit.nomScientifique, version.commentaire, traitement_Symptome.libelle, phase.libelle, valider.dateInsertion, valider.dateValidation, version.idVersion, phase.idPhase, produit.nomGenerique " +
+                                "FROM produit " +
+                                "left join traiter on produit.idProduit = traiter.idProduit " +
+                                "left join traitement_symptome on traiter.idTraitementSymptome = traitement_Symptome.idTraitementSymptome " +
+                                "left JOIN valider ON produit.idProduit = valider.idProduit " +
+                                "LEFT JOIN version on valider.idVersion = version.idVersion " +
+                                "LEFT JOIN phase on valider.idPhase = phase.idPhase " +
+                                "order by produit.idProduit";
+                                //"inner join recette on produit.idProduit = recette.idProduit and phase.idPhase = recette.idPhase order by idProduit";
+
                 MySqlCommand cmd = new MySqlCommand(query, dbCon.Connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 String symptome = "";
@@ -62,10 +72,15 @@ namespace ValenceRD
                 String phase = "";
                 DateTime date_insertion;
                 DateTime date_derniere_validation;
+                
+
                 while (reader.Read())
                 {
-                    string idProduit = reader.GetString(0);
+                    int idVersion = reader.GetInt32(7);
+                    int idPhase = reader.GetInt32(8);
+                    int idProduit = reader.GetInt32(0);
                     string nomScientifique = reader.GetString(1);
+                    string nomGenerique = "";
                     if (!reader.IsDBNull(2))
                     {
                         version = reader.GetString(2);
@@ -110,12 +125,25 @@ namespace ValenceRD
                         date_derniere_validation = DateTime.Parse("1999-01-01");
                     }
 
+
+                    if (!reader.IsDBNull(9))
+                    {
+                        nomGenerique = reader.GetString(9);
+                    }
+                    else
+                    {
+                        nomGenerique = "";
+                    }
+
                     Console.WriteLine(idProduit + "," + nomScientifique + "," + symptome);
 
                     list.Add(new Produits()
                     {
-                        id_Produit = Int32.Parse(idProduit),
+                        id_Produit = idProduit,
+                        id_Version = idVersion,
+                        id_Phase = idPhase,
                         nom_Scientifique = nomScientifique,
+                        nom_Generique = nomGenerique,
                         version = version,
                         symptome = symptome,
                         phase_Courante = phase,
@@ -167,19 +195,11 @@ namespace ValenceRD
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             PageCreaProduit form2 = new PageCreaProduit();
+            form2.StartPosition = FormStartPosition.CenterParent;
             form2.Show();
             this.Hide();
         }
@@ -187,6 +207,7 @@ namespace ValenceRD
         private void button2_Click(object sender, EventArgs e)
         {
             UpgradeProduit upgradeProd = new UpgradeProduit();
+            upgradeProd.StartPosition = FormStartPosition.CenterParent;
             this.Hide();
             upgradeProd.Show();
         }
@@ -195,52 +216,7 @@ namespace ValenceRD
         {
 
         }
-        /*
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            List<Produits> produits = this.listProduits;
-            List<Produits> prodSelect = this.listProduits;
-            String identifiant = "";
-            String nomProduit = "";
-            String numVersion = "";
-            String symptome ="";
-            String phase = "";
-            String dateInsertProd = "";
-
-            if (inputIdentifiantForm != null || !inputIdentifiantForm.Text.Equals(""))
-            {
-                identifiant = inputIdentifiantForm.Text;
-            }
-
-            if (inputNomProdForm != null || !inputNomProdForm.Text.Equals(""))
-            {
-                nomProduit = inputNomProdForm.Text;
-            }
-
-            if (inputNumVersionForm != null || !inputNumVersionForm.Text.Equals(""))
-            {
-                numVersion = inputNumVersionForm.Text;
-            }
-
-            if (InputSymptomeForm.SelectedItem != null || !InputSymptomeForm.SelectedItem.ToString().Equals(""))
-            {
-                symptome = InputSymptomeForm.SelectedItem.ToString();
-            }
-
-            if (inputPhaseForm.SelectedItem != null || !inputPhaseForm.SelectedItem.ToString().Equals(""))
-            {
-                phase = inputPhaseForm.SelectedItem.ToString();
-            }
-
-            if (inputDateInsertProdFormDeb.Value != null || !inputDateInsertProdFormDeb.Value.ToString().Equals(""))
-            {
-                dateInsertProd = inputDateInsertProdFormDeb.Value.ToString();
-            }
-
-            Console.WriteLine("date insertion produit : "+ dateInsertProd);
-
-        }
-        */
+        
 
         private void LblIdProduitForm_Click(object sender, EventArgs e)
         {
@@ -250,6 +226,7 @@ namespace ValenceRD
         private void lblTabIdProd1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RechercheProduit rechProd = new RechercheProduit();
+            rechProd.StartPosition = FormStartPosition.CenterParent;
             rechProd.Show();
             this.Hide();
         }
@@ -269,17 +246,35 @@ namespace ValenceRD
             Console.WriteLine("HELLLLLLOOOOO !!!");
             List<Produits> produits = this.listProduits;
             dataGridView1.DataSource = produits;
+
+            dataGridView1.Columns["id_Version"].Visible = false;
+            dataGridView1.Columns["id_Phase"].Visible = false;
+            dataGridView1.Columns["nom_Generique"].Visible = false;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == 1) //Click sur id Produit
+            DataGridView dgv = (DataGridView)sender;
+
+            if (e.RowIndex!=-1) //Click sur id Produit
             {
                 var produitCLic = listProduits[e.RowIndex];
                 Console.WriteLine("Clicked IDProduit :" + produitCLic.id_Produit);
-                RechercheProduit rechProd = new RechercheProduit(produitCLic.id_Produit, produitCLic.nom_Scientifique, produitCLic.version, produitCLic.symptome, produitCLic.phase_Courante, produitCLic.date_insertion_produit, produitCLic.date_derniere_validation);
-                this.Hide();
-                rechProd.Show();
+                if (produitCLic.id_Phase == 2)
+                {
+                    TestsAnimaux testAnim = new TestsAnimaux(produitCLic.id_Produit, produitCLic.id_Version, produitCLic.id_Phase);
+                    this.Hide();
+                    testAnim.StartPosition = FormStartPosition.CenterParent;
+                    testAnim.Show();
+                }
+                else
+                {
+                    RechercheProduit rechProd = new RechercheProduit(produitCLic.id_Produit, produitCLic.id_Version, produitCLic.id_Phase);
+                    this.Hide();
+                    rechProd.StartPosition = FormStartPosition.CenterParent;
+                    rechProd.Show();
+                }
+               
             }
         }
 
@@ -367,5 +362,194 @@ namespace ValenceRD
             dateInserFiltreFin = inputDateInsertProdFormFin.Value;
             FilterProduits(idProduitFiltre, nomProduitFiltre, versionFiltre, symptomeFiltre, phaseCourFiltre, dateInserFiltreDeb, dateValidFiltreDeb, dateInserFiltreFin, dateValidFiltreFin);
         }
+
+        private void lblDeco_hover(object sender, EventArgs e)
+        {
+            this.panDeconnexion.BackColor = Color.LightBlue;
+        }
+
+        private void hover_imgDeco(object sender, EventArgs e)
+        {
+            this.panDeconnexion.BackColor = Color.LightBlue;
+        }
+
+        private void hover_panDeco(object sender, EventArgs e)
+        {
+            this.panDeconnexion.BackColor = Color.LightBlue;
+        }
+
+        private void leave_panDeco(object sender, EventArgs e)
+        {
+            this.panDeconnexion.BackColor = Color.Transparent;
+        }
+
+        private void lblDeco_leave(object sender, EventArgs e)
+        {
+            this.panDeconnexion.BackColor = Color.Transparent;
+        }
+
+        private void leave_imgDeco(object sender, EventArgs e)
+        {
+            this.panDeconnexion.BackColor = Color.Transparent;
+        }
+
+
+        private void imgDeco_click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form_Connexion formCo = new Form_Connexion();
+            formCo.StartPosition = this.StartPosition;
+            formCo.Show();
+        }
+
+        private void panDeco_click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form_Connexion formCo = new Form_Connexion();
+            formCo.StartPosition = this.StartPosition;
+            formCo.Show();
+        }
+
+        private void lblDeco_click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form_Connexion formCo = new Form_Connexion();
+            formCo.StartPosition = this.StartPosition;
+            formCo.Show();
+        }
+
+        private void SupprimerProduit_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Êtes-vous sûr de vouloir supprimer le produit sélectionné ? \n Cette opération entraînera la suppression ", "SUPPRIMER LE PRODUIT SELECTIONNE", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                bool prodtrouve = false;
+
+                //Suppression du produits
+                List<Produits> produits = this.listProduits;
+
+                Produits prodASup = new Produits { id_Produit = 1, nom_Scientifique = "", version = "", symptome = "", phase_Courante = "", date_insertion_produit = DateTime.Today, date_derniere_validation = DateTime.Today };
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (row.Selected || row.Cells[0].Selected || row.Cells[1].Selected || row.Cells[1].Selected)
+                    {
+                        for (int i = 0; i < produits.Count; i++)
+                        {
+                            if (produits[i].id_Produit == Int32.Parse(row.Cells[0].Value.ToString()) && produits[i].nom_Scientifique.Equals(row.Cells[1].Value.ToString()) && produits[i].version.Equals(row.Cells[2].Value.ToString()) && produits[i].phase_Courante.Equals(row.Cells[4].Value.ToString()))
+                            {
+                                prodtrouve = true;
+                                prodASup = produits[i];
+                                Console.WriteLine("PRODUITS A SUPPRIMER !! : " + prodASup.id_Produit + ", " + prodASup.nom_Scientifique + ", " + prodASup.phase_Courante + ", " + prodASup.version);
+                            }
+                        }
+
+                    }
+                }
+
+                if (prodtrouve)
+                {
+                    DBConnection dbCon = DBConnection.Instance();
+                    dbCon.DatabaseName = "r_d_valence";
+
+                    if (dbCon.IsConnect())
+                    {
+                        Console.WriteLine("DB CONNECTION FAITE !");
+
+                        //récupération de l'idPhase
+                        int idPhaseASup = -1;
+
+                        string queryPhaseASup = "Select idPhase from phase where libelle = @libellePhase";
+                        Console.WriteLine("Requete idPhase " + queryPhaseASup);
+                        using (MySqlCommand cmdPhase = new MySqlCommand(queryPhaseASup, dbCon.Connection))
+                        {
+                            cmdPhase.Parameters.Add("@libellePhase", MySqlDbType.VarChar).Value = prodASup.phase_Courante;
+
+                            MySqlDataReader readerPhase = cmdPhase.ExecuteReader();
+                            while (readerPhase.Read())
+                            {
+                                idPhaseASup = Int32.Parse(readerPhase.GetString(0));
+                                Console.WriteLine("idPhase a sup : "+idPhaseASup);
+                            }
+                            readerPhase.Close();
+                        }
+
+                        //récupération de l'idVersion
+                        int idVersionASup = -1;
+
+                        string queryVersionASup = "Select idVersion from version where commentaire = @libelleVersion";
+                        Console.WriteLine("Requete idVersion " + queryVersionASup);
+                        using (MySqlCommand cmdVersion = new MySqlCommand(queryVersionASup, dbCon.Connection))
+                        {
+                            cmdVersion.Parameters.Add("@libelleVersion", MySqlDbType.VarChar).Value = prodASup.version;
+
+                            MySqlDataReader readerVersion = cmdVersion.ExecuteReader();
+                            while (readerVersion.Read())
+                            {
+                                idVersionASup = Int32.Parse(readerVersion.GetString(0));
+                                Console.WriteLine("idVersion a sup : " + idVersionASup);
+                            }
+                            readerVersion.Close();
+                        }
+
+
+                        //Suppression des ingredients de la recette du produit à cette phase
+                        string queryDeleteRecette = "Delete from recette where idProduit = @idProduit and idPhase = @idPhase";
+                        Console.WriteLine("Requete deletteRecette : "+ queryDeleteRecette);
+                        using (MySqlCommand cmdDeleteRecette = new MySqlCommand(queryDeleteRecette, dbCon.Connection))
+                        {
+                            cmdDeleteRecette.Parameters.Add("@idPhase", MySqlDbType.Int32).Value = idPhaseASup;
+                            cmdDeleteRecette.Parameters.Add("@idProduit", MySqlDbType.Int32).Value = prodASup.id_Produit;
+                            cmdDeleteRecette.ExecuteNonQuery();
+                        }
+
+
+                        //Suppression de la validation de la phase
+                        string queryDeleteValider = "Delete from valider where idProduit = @idProduit and idPhase = @idPhase and idVersion = @idVersion";
+                        Console.WriteLine("Requete queryDeleteValider : " + queryDeleteValider);
+                        using (MySqlCommand cmdDeleteValider = new MySqlCommand(queryDeleteValider, dbCon.Connection))
+                        {
+                            cmdDeleteValider.Parameters.Add("@idPhase", MySqlDbType.Int32).Value = idPhaseASup;
+                            cmdDeleteValider.Parameters.Add("@idProduit", MySqlDbType.Int32).Value = prodASup.id_Produit;
+                            cmdDeleteValider.Parameters.Add("@idVersion", MySqlDbType.Int32).Value = idVersionASup;
+                            cmdDeleteValider.ExecuteNonQuery();
+                        }
+
+                    }
+                    dbCon.Close();
+
+                    //suppression du produit à supprimer
+                    produits.Remove(prodASup);
+
+                    //maj du tableau des phases de produit
+                    BindingSource source = new BindingSource();
+                    source.DataSource = listProduits;
+                    dataGridView1.DataSource = source;
+                }
+                else
+                {
+                    MessageBox.Show("Le produit à supprimer n'a pas été trouvé", "PRODUIT NON TROUVE", MessageBoxButtons.OK);
+                }
+
+            }
+        }
+
+        private void gérerLesRessourcesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PageCreaProduit form2 = new PageCreaProduit();
+            form2.StartPosition = FormStartPosition.CenterParent;
+            form2.Show();
+            this.Hide();
+        }
+
+        private void upgradeUnProduitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpgradeProduit upgradeProd = new UpgradeProduit();
+            upgradeProd.StartPosition = FormStartPosition.CenterParent;
+            this.Hide();
+            upgradeProd.Show();
+        }
+
     }
 }

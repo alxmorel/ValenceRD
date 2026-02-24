@@ -1,0 +1,266 @@
+CREATE DATABASE IF NOT EXISTS R_D_Valence;
+
+CREATE TABLE IF NOT EXISTS Produit(
+	idProduit INT PRIMARY KEY NOT NULL,
+	nomScientifique varchar(255),
+	nomGenerique varchar(255)
+	);
+
+CREATE TABLE IF NOT EXISTS Etape(
+	idEtape INT PRIMARY KEY NOT NULL,
+	libelle varchar(255)
+	);
+
+CREATE TABLE IF NOT EXISTS Nomenclature(
+	idNomenclature INT PRIMARY KEY NOT NULL,
+	libelle varchar(255)
+	);
+
+CREATE TABLE IF NOT EXISTS Version(
+	idVersion INT PRIMARY KEY NOT NULL,
+	commentaire varchar(255)
+	);
+
+CREATE TABLE IF NOT EXISTS Ressource(
+	idRessource INT PRIMARY KEY NOT NULL,
+	nom varchar(255),
+	prenom varchar(100)
+	);
+
+CREATE TABLE IF NOT EXISTS Dosage(
+	idDosage INT PRIMARY KEY NOT NULL,
+	quantite float,
+	uniteMesure varchar(50)
+	);
+
+CREATE TABLE IF NOT EXISTS Frequence(
+	idFrequence INT PRIMARY KEY NOT NULL,
+	libelle varchar(255)
+	);
+
+CREATE TABLE IF NOT EXISTS Traitement_Symptome(
+	idTraitementSymptome INT PRIMARY KEY NOT NULL,
+	libelle varchar(255)
+	);
+	
+CREATE TABLE IF NOT EXISTS Effet_Secondaire(
+	idEffetSecondaire INT PRIMARY KEY NOT NULL,
+	libelle varchar(255)
+	);
+
+CREATE TABLE IF NOT EXISTS Phase(
+	idPhase INT PRIMARY KEY NOT NULL,
+	libelle varchar(255)
+	);
+
+	
+CREATE TABLE IF NOT EXISTS Travailler(
+	idRessource INT NOT NULL,
+	idEtape INT NOT NULL,
+	PRIMARY KEY(idRessource, idEtape)
+	);
+	
+CREATE TABLE IF NOT EXISTS Manipuler(
+	idProduit INT NOT NULL,
+	idEtape INT NOT NULL,
+	idNomenclature INT NOT NULL,
+	quantite float,
+	uniteMesure varchar(50),
+	PRIMARY KEY(idProduit, idEtape, idNomenclature)
+	);
+
+CREATE TABLE IF NOT EXISTS Recette(
+	idEtape INT NOT NULL,
+	idProduit INT NOT NULL,
+	temps float,
+	PRIMARY KEY(idEtape, idProduit)
+	);
+
+CREATE TABLE IF NOT EXISTS Valider(
+	idPhase INT NOT NULL,
+	idVersion INT NOT NULL,
+	idProduit INT NOT NULL,
+	dateInsertion date,
+	dateValidation date,
+	validation boolean,
+	commentaire varchar(5000),
+	PRIMARY KEY(idPhase, idVersion, idProduit)
+	);
+	
+CREATE TABLE IF NOT EXISTS Affecter(
+	idProduit INT NOT NULL,
+	idVersion INT NOT NULL,
+	idPhase INT NOT NULL,
+	idEssai INT NOT NULL,
+	idEffetSecondaire INT NOT NULL,
+	idFrequence INT NOT NULL,
+	idGravite INT NOT NULL,
+	PRIMARY KEY(idProduit, idVersion, idPhase, idEffetSecondaire, idFrequence, idGravite)
+	);
+
+CREATE TABLE IF NOT EXISTS Traiter(
+	idProduit INT NOT NULL,
+	idTraitementSymptome INT NOT NULL,
+	PRIMARY KEY(idProduit, idTraitementSymptome)
+	);
+
+CREATE TABLE IF NOT EXISTS Administrer(
+	idProduit INT NOT NULL,
+	idDosage INT NOT NULL,
+	idFrequence INT NOT NULL,
+	PRIMARY KEY(idProduit, idDosage, idFrequence)
+	);
+	
+ALTER TABLE Travailler
+ADD FOREIGN KEY(idRessource) REFERENCES Ressource(idRessource);
+
+ALTER TABLE Travailler
+ADD FOREIGN KEY(idEtape) REFERENCES Etape(idEtape);
+
+ALTER TABLE Manipuler
+ADD FOREIGN KEY(idProduit) REFERENCES Produit(idProduit);
+
+ALTER TABLE Manipuler
+ADD FOREIGN KEY(idEtape) REFERENCES Etape(idEtape);
+
+ALTER TABLE Manipuler
+ADD FOREIGN KEY(idNomenclature) REFERENCES Nomenclature(idNomenclature);
+
+ALTER TABLE Recette
+ADD FOREIGN KEY(idEtape) REFERENCES Etape(idEtape);
+
+ALTER TABLE Recette
+ADD FOREIGN KEY(idProduit) REFERENCES Produit(idProduit);
+
+ALTER TABLE Valider
+ADD FOREIGN KEY(idPhase) REFERENCES Phase(idPhase);
+
+ALTER TABLE Valider
+ADD FOREIGN KEY(idVersion) REFERENCES Version(idVersion);
+
+ALTER TABLE Valider
+ADD FOREIGN KEY(idProduit) REFERENCES Produit(idProduit);
+
+ALTER TABLE Affecter
+ADD FOREIGN KEY(idProduit) REFERENCES Produit(idProduit);
+
+ALTER TABLE Affecter
+ADD FOREIGN KEY(idVersion) REFERENCES version(idVersion);
+
+ALTER TABLE Affecter
+ADD FOREIGN KEY(idPhase) REFERENCES phase(idPhase);
+
+ALTER TABLE Affecter
+ADD FOREIGN KEY(idEffetSecondaire) REFERENCES Effet_Secondaire(idEffetSecondaire);
+
+ALTER TABLE Affecter
+ADD FOREIGN KEY(idFrequence) REFERENCES frequence(idFrequence);
+
+ALTER TABLE Affecter
+ADD FOREIGN KEY(idGravite) REFERENCES gravite(idGravite);
+
+ALTER TABLE Affecter
+ADD FOREIGN KEY(idEssai) REFERENCES testanimal(idEssai);
+
+ALTER TABLE Traiter
+ADD FOREIGN KEY(idTraitementSymptome) REFERENCES Traitement_Symptome(idTraitementSymptome);
+
+ALTER TABLE Traiter
+ADD FOREIGN KEY(idProduit) REFERENCES Produit(idProduit);
+
+ALTER TABLE Administrer
+ADD FOREIGN KEY(idProduit) REFERENCES Produit(idProduit);
+
+ALTER TABLE Administrer
+ADD FOREIGN KEY(idDosage) REFERENCES Dosage(idDosage);
+
+ALTER TABLE Administrer
+ADD FOREIGN KEY(idFrequence) REFERENCES Frequence(idFrequence);
+
+///////////////////////////Ajout test animaux//////////////////////////////
+
+CREATE TABLE IF NOT EXISTS animal(
+	idAnimal INT PRIMARY KEY NOT NULL,
+	libelle varchar(255)
+	);
+    
+CREATE TABLE IF NOT EXISTS pharmacoDur(
+	idPharmDur INT PRIMARY KEY NOT NULL,
+	libelle varchar(255)
+	);
+    
+CREATE TABLE IF NOT EXISTS voieAdmin(
+	idAdmin INT PRIMARY KEY NOT NULL,
+	libelle varchar(255)
+	);
+    
+CREATE TABLE IF NOT EXISTS testAnimal(
+    idAnimal INT NOT NULL,
+    idProduit INT NOT NULL,
+    idVersion INT NOT NULL,
+    idPhase INT NOT NULL,
+    idEssai INT NOT NULL,
+    idAdmin INT NOT NULL,
+    effectif INT NOT NULL,
+    tauxReussite float,
+    pharmacocin int,
+    idPharmDur int,
+    commentaire varchar(5000),
+    PRIMARY KEY (idAnimal, idProduit, idVersion, idPhase, idEssai, idAdmin, effectif)
+	);
+
+CREATE TABLE IF NOT EXISTS testHumain(
+    idProduit INT NOT NULL,
+    idVersion INT NOT NULL,
+    idPhase INT NOT NULL,
+    idEssai INT NOT NULL,
+    idSexe INT NOT NULL,
+    effectif INT NOT NULL,
+    idTrancheAge INT NOT NULL,
+    idEtatSujet INT NOT NULL,
+    placebo varchar(3),
+    tauxReussite float,
+    pharmacocin int,
+    idPharmDur int,
+    commentaire varchar(5000),
+    PRIMARY KEY (idProduit, idVersion, idPhase, idEssai, idSexe, effectif, idTrancheAge, idEtatSujet)
+	);
+    
+
+CREATE TABLE IF NOT EXISTS trancheAge(
+	idTrancheAge INT PRIMARY KEY NOT NULL,
+	libelle varchar(255)
+	);
+
+CREATE TABLE IF NOT EXISTS genre(
+	idGenre INT PRIMARY KEY NOT NULL,
+	libelle varchar(255)
+	);
+
+CREATE TABLE IF NOT EXISTS etatSujet(
+	idEtat INT PRIMARY KEY NOT NULL,
+	libelle varchar(255)
+	);
+
+    
+ALTER TABLE testAnimal
+ADD FOREIGN KEY(idAnimal) REFERENCES animal(idAnimal);
+
+ALTER TABLE testAnimal
+ADD FOREIGN KEY(idProduit) REFERENCES produit(idProduit);
+
+ALTER TABLE testAnimal
+ADD FOREIGN KEY(idVersion) REFERENCES version(idVersion);
+
+ALTER TABLE testAnimal
+ADD FOREIGN KEY(idPhase) REFERENCES phase(idPhase);
+
+ALTER TABLE testAnimal
+ADD FOREIGN KEY(idAdmin) REFERENCES voieAdmin(idAdmin);
+
+ALTER TABLE testAnimal
+ADD FOREIGN KEY(idPharmDur) REFERENCES pharmacoDur(idPharmDur);
+
+ALTER TABLE testAnimal
+ADD FOREIGN KEY(idEssai) REFERENCES affecter(idEssai);
+

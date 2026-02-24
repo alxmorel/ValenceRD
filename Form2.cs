@@ -13,10 +13,16 @@ namespace ValenceRD
 {
     public partial class PageCreaProduit : Form
     {
+
+        public List<Ressources> listRessources { get; set; }
+
         public PageCreaProduit()
         {
             InitializeComponent();
+            listRessources = getListRessources();
 
+            //Ajoute les ressources humaine dans la liste des ressources
+            setListBoxRessources();
 
             //Connection Base de données r_d_valence
             var dbCon = DBConnection.Instance();
@@ -24,10 +30,8 @@ namespace ValenceRD
 
             if (dbCon.IsConnect())
             {
-                /*MenaOvh*/ //string query = "SELECT Produit.idProduit, Produit.nomScientifique, Traitement_Syptome.libelle FROM Produit, Traitement_Syptome, Traiter where Produit.idProduit = Traiter.idProduit and Traiter.idTraitementSymptome = Traitement_Syptome.idTraitementSymptome";
-                /*Localhost*/
                 string query = "SELECT libelle FROM Traitement_Symptome";
-                var cmd = new MySqlCommand(query, dbCon.Connection);
+                MySqlCommand cmd = new MySqlCommand(query, dbCon.Connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 //addComboBox Data for Symptome
@@ -41,20 +45,19 @@ namespace ValenceRD
                 
                 //génère idProduit
                 string queryId = "SELECT idProduit FROM produit";
-                var cmdId = new MySqlCommand(queryId, dbCon.Connection);
-                reader = cmdId.ExecuteReader();
+                MySqlCommand cmdId = new MySqlCommand(queryId, dbCon.Connection);
+                MySqlDataReader readerId = cmdId.ExecuteReader();
 
                 int maxId = -1;
 
-                while (reader.Read())
+                while (readerId.Read())
                 {
-                    string idProduitCourant = reader.GetString(0);
+                    string idProduitCourant = readerId.GetString(0);
                    
                     if(Int32.Parse(idProduitCourant) > maxId)
                     {
                         maxId = Int32.Parse(idProduitCourant);
                     }
-
                 }
 
                 if (maxId!=-1)
@@ -62,9 +65,8 @@ namespace ValenceRD
                     maxId++;
                     lblIdSelectFromInput.Text = maxId.ToString();
                 }
-                
 
-                reader.Close();
+                readerId.Close();
                 dbCon.Close();
             }
             //set label Date du jour à aujourd'hui
@@ -72,7 +74,49 @@ namespace ValenceRD
 
         }
 
-        internal static void show()
+
+        private void setListBoxRessources()
+        {
+            foreach (Ressources ress in listRessources)
+            {
+                listBoxRessTot.Items.Add(ress.prenom + " " + ress.nom);
+            }
+        }
+
+        private List<Ressources> getListRessources()
+        {
+            List<Ressources> list = new List<Ressources>();
+
+            //Connection Base de données r_d_valence
+            DBConnection dbCon = DBConnection.Instance();
+            dbCon.DatabaseName = "r_d_valence";
+
+            if (dbCon.IsConnect())
+            {
+                string SelectRess = "Select idRessource, nom, prenom from ressource";
+
+                using (MySqlCommand cmdSelectRess = new MySqlCommand(SelectRess, dbCon.Connection))
+                {
+                    MySqlDataReader reader = cmdSelectRess.ExecuteReader(); //Récupère l'identifiant du symptome qu'il traite
+
+                    while (reader.Read())
+                    {
+                        list.Add(new Ressources()
+                        {
+                            id_Ressource = reader.GetInt32(0),
+                            nom = reader.GetString(1),
+                            prenom = reader.GetString(2)
+                        });
+                    }
+                    reader.Close();
+                }
+            }
+            dbCon.Close();
+
+            return list;
+        }
+
+                internal static void show()
         {
             throw new NotImplementedException();
         }
@@ -81,6 +125,7 @@ namespace ValenceRD
         {
             MainPageRDValence mainPage = new MainPageRDValence();
             this.Hide();
+            mainPage.StartPosition = this.StartPosition;
             mainPage.Show();
             
         }
@@ -124,19 +169,61 @@ namespace ValenceRD
                     //string formatForMySql = lblTabDateInsertProd.Text.ToString("yyyy-MM-dd HH:mm:ss");
                     //DateTime Dateinsertprod = Convert.ToDateTime(lblTabDateInsertProd.Text);
 
-                    String queryInsertValider = "Insert into valider values (1, 1, "+ Int32.Parse(lblIdSelectFromInput.Text)+", \""+ lblTabDateInsertProd.Text + "\", \"1999-01-01\" ,0, \"Mise en place des protocoles de recherches\" )";
-                    var cmd3 = new MySqlCommand(queryInsertValider, dbCon.Connection);
-                    cmd3.ExecuteNonQuery();
+                    string queryInsertValider = "insert into valider values (@idPhaseCour, @idVersionProduit, @idProduit, @dateInsertProd, \"1999-01-01\", 0, \"Mise en place des protocoles de recherches\")";
+                    Console.WriteLine("REQUETE D'INSERT NOUVEL PHASE : " + queryInsertValider);
+                    using (MySqlCommand cmdInsertValider = new MySqlCommand(queryInsertValider, dbCon.Connection))
+                    {
+                        cmdInsertValider.Parameters.Add("@idPhaseCour", MySqlDbType.Int32).Value = 1;
+                        cmdInsertValider.Parameters.Add("@idVersionProduit", MySqlDbType.Int32).Value = 1;
+                        cmdInsertValider.Parameters.Add("@idProduit", MySqlDbType.Int32).Value = Int32.Parse(lblIdSelectFromInput.Text);
+                        cmdInsertValider.Parameters.Add("@dateInsertProd", MySqlDbType.Datetime).Value = DateTime.Today;
+                        cmdInsertValider.ExecuteNonQuery();
+                    }
+
 
                     dbCon.Close();
                 }
 
             }
 
-            
-            RechercheProduit rechProd = new RechercheProduit();
-            rechProd.Show();
+            //ouvre le produit créé
+            RechercheProduit rechProd = new RechercheProduit(Int32.Parse(lblIdSelectFromInput.Text), 1, 1);
             this.Hide();
+            rechProd.StartPosition = FormStartPosition.CenterParent;
+            rechProd.Show();
+        }
+
+        private void btnAjoutRess_Click(object sender, EventArgs e)
+        {
+            bool estPresent = false;
+
+            foreach (object itemRess in listBoxRessTot.SelectedItems)
+            {
+                foreach (object itemImp in listBoxRessImp.Items)
+                {
+                    if (itemRess.Equals(itemImp))
+                    {
+                        estPresent = true;
+                    }
+                }
+                if (!estPresent)
+                {
+                    listBoxRessImp.Items.Add(itemRess);
+                    
+                }
+                estPresent = false;
+            }
+        }
+
+        private void btnSuppRess_Click(object sender, EventArgs e)
+        {
+            ListBox.SelectedObjectCollection selectedItems = new ListBox.SelectedObjectCollection(listBoxRessImp);
+            selectedItems = listBoxRessImp.SelectedItems;
+
+            for (int i = selectedItems.Count - 1; i >= 0; i--)
+            {
+                listBoxRessImp.Items.Remove(selectedItems[i]);
+            }
         }
     }
 }

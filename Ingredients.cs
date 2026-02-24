@@ -8,10 +8,12 @@ namespace ValenceRD
 {
     public class Ingredients
     {
-        public String nom_Ingredient { get; set; }
+        public string nom_Ingredient { get; set; }
 
-        public Int32 quantite { get; set; }
+        public int quantite { get; set; }
 
-        public String unite_Mesure { get; set; }
+        public string unite_Mesure { get; set; }
+
+        public int etape { get; set; }
     }
 }

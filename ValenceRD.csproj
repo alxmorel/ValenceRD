@@ -39,9 +39,13 @@
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.19.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>packages\MySql.Data.8.0.19\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
@@ -52,6 +56,8 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.Protocols" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Transactions" />
@@ -67,6 +73,9 @@
     <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>packages\MySql.Data.8.0.19\lib\net452\Ubiety.Dns.Core.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\WindowsBase.4.6.1055.0\lib\WindowsBase.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AjoutMatiere.cs">
@@ -76,6 +85,21 @@
       <DependentUpon>AjoutMatiere.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnection.cs" />
+    <Compile Include="EffetSecs.cs" />
+    <Compile Include="EssaiAnimaux.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EssaiAnimaux.Designer.cs">
+      <DependentUpon>EssaiAnimaux.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EssaiClinique.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EssaiClinique.Designer.cs">
+      <DependentUpon>EssaiClinique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etape.cs" />
+    <Compile Include="Footer.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,15 +124,62 @@
     <Compile Include="Form4.Designer.cs">
       <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Connexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Connexion.Designer.cs">
+      <DependentUpon>Form_Connexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GererLesRessources.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GererLesRessources.Designer.cs">
+      <DependentUpon>GererLesRessources.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionPhase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionPhase.Designer.cs">
+      <DependentUpon>GestionPhase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfosOubliees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfosOubliees.Designer.cs">
+      <DependentUpon>InfosOubliees.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ingredients.cs" />
+    <Compile Include="Phases.cs" />
     <Compile Include="Produits.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ressources.cs" />
+    <Compile Include="RessourcesTotal.cs" />
     <Compile Include="r_d_valenceDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>r_d_valenceDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TestAnimal.cs" />
+    <Compile Include="TestHumain.cs" />
+    <Compile Include="TestHumains.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestHumains.Designer.cs">
+      <DependentUpon>TestHumains.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestsAnimaux.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestsAnimaux.Designer.cs">
+      <DependentUpon>TestsAnimaux.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="EssaiAnimaux.resx">
+      <DependentUpon>EssaiAnimaux.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EssaiClinique.resx">
+      <DependentUpon>EssaiClinique.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +192,18 @@
     <EmbeddedResource Include="Form4.resx">
       <DependentUpon>Form4.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Connexion.resx">
+      <DependentUpon>Form_Connexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GererLesRessources.resx">
+      <DependentUpon>GererLesRessources.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionPhase.resx">
+      <DependentUpon>GestionPhase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfosOubliees.resx">
+      <DependentUpon>InfosOubliees.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -130,6 +213,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TestHumains.resx">
+      <DependentUpon>TestHumains.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestsAnimaux.resx">
+      <DependentUpon>TestsAnimaux.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -10,7 +10,13 @@ namespace ValenceRD
     {
         public int id_Produit { get; set; }
 
+        public int id_Version { get; set; }
+
+        public int id_Phase { get; set; }
+
         public String nom_Scientifique { get; set; }
+
+        public String nom_Generique { get; set; }
 
         public String version { get; set; }
 

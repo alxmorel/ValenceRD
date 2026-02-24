@@ -16,7 +16,7 @@ namespace ValenceRD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainPageRDValence());
+            Application.Run(new Form_Connexion());
         }
     }
 }
