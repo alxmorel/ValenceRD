@@ -20,7 +20,7 @@ Application WinForms de gestion R&D (Valence RD).
 ### Récupération du projet
 
 ```bash
-git clone https://github.com/alxmorel/TON_REPO.git
+git clone https://github.com/alxmorel/ValenceRD.git
 cd TON_REPO
 ```
 
