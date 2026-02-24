@@ -21,7 +21,7 @@ Application WinForms de gestion R&D (Valence RD).
 
 ```bash
 git clone https://github.com/alxmorel/ValenceRD.git
-cd TON_REPO
+cd ValenceRD
 ```
 
 Ouvrir ensuite le fichier `ValenceRD.csproj` dans Visual Studio.  
@@ -131,7 +131,7 @@ L’application affiche d’abord la fenêtre de connexion (`Form_Connexion`), p
 
 ### Git / GitHub
 
-Ce dépôt est hébergé sur GitHub (`https://github.com/alxmorel/TON_REPO`).
+Ce dépôt est hébergé sur GitHub (`https://github.com/alxmorel/ValenceRD`).
 
 Quelques commandes utiles :
 
