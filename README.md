@@ -2,6 +2,19 @@
 
 Application WinForms de gestion R&D (Valence RD).
 
+### Vue d’ensemble du contexte métier
+
+L’application est un outil interne de **gestion de la R&D pharmaceutique** pour des produits de santé (médicaments).  
+Elle permet de suivre le **cycle de vie d’un produit** depuis sa création jusqu’aux essais précliniques (animaux) et cliniques (humains), en s’appuyant sur une base MySQL (`r_d_valence`).
+
+L’objectif est de centraliser :
+- la **définition de la recette / formulation** du produit,
+- la **gestion des phases** (R&D, tests animaux, essais cliniques, etc.),
+- la **traçabilité des essais** (paramètres, résultats, effets secondaires),
+- la **gestion des ressources humaines** impliquées dans ces étapes.
+
+--- 
+       
 ### Prérequis
 
 - **Système** : Windows
@@ -149,5 +162,116 @@ git commit -m "Message de commit"
 git push origin master
 ```
 
-N’hésite pas à mettre à jour ce README si tu changes la façon de gérer la connexion, la BD, ou les scripts SQL.
+---
 
+### Objets métiers principaux
+
+- **Produit**
+  - Identifié par un `idProduit`, avec **nom scientifique** et **nom générique**.
+  - Associé à un ou plusieurs **symptômes traités**.
+  - Possède des **versions**, et progresse dans des **phases** (via la table de validation des phases).
+
+- **Recette / Procédé de fabrication**
+  - Décrit comment le produit est fabriqué :
+    - **Nomenclature des ingrédients** (matières premières, quantités, unités).
+    - **Étapes métier** : opérations successives avec libellé, durée, ordre.
+  - La recette est saisie et éditée visuellement dans l’application, puis enregistrée en base.
+  - Une version PDF de la recette peut être générée (pour archivage / communication).
+
+- **Phases de développement**
+  - Le produit passe par plusieurs **phases** (R&D, tests animaux, essais humains, etc.).
+  - Chaque phase est tracée avec :
+    - une date d’insertion,
+    - une date de validation,
+    - un **statut de validation**,
+    - un **commentaire** décrivant l’avancement / les conclusions.
+
+- **Ressources humaines**
+  - Des **personnes** (ressources) peuvent être affectées à un produit et/ou à certaines étapes de la recette.
+  - Pour chaque ressource, l’application stocke :
+    - son identité (nom, prénom),
+    - son **action / rôle**,
+    - sa **charge de travail** sur la phase/recette.
+
+- **Effets secondaires**
+  - Pour un couple (produit, version, phase, essai), l’application permet de saisir des **effets secondaires** :
+    - la **nature** de l’effet,
+    - sa **fréquence**,
+    - sa **gravité**.
+  - Ces informations sont affichées et éditées dans des grilles avec des listes déroulantes (valeurs de référence).
+
+- **Essais sur animaux**
+  - Représentent les **tests précliniques** :
+    - type de sujet (espèce animale),
+    - voie d’administration,
+    - effectif,
+    - taux de réussite,
+    - paramètres de pharmacocinétique,
+    - commentaire,
+    - statut (validé/terminé ou non).
+  - Les effets secondaires observés pendant ces essais sont également saisis et liés au produit.
+
+- **Essais cliniques humains**
+  - Représentent les **tests cliniques** :
+    - sexe, tranche d’âge, état du sujet,
+    - présence ou non de placebo,
+    - effectif, taux de réussite,
+    - paramètres de pharmacocinétique (durée, intensité),
+    - effets secondaires,
+    - statut de l’essai.
+  - Ces essais sont attachés à une phase et une version du produit, pour assurer la traçabilité réglementaire.
+
+- **Authentification**
+  - Historiquement, une authentification **Active Directory / LDAP** était prévue (désactivée dans le code actuel).
+  - L’application utilise aujourd’hui une table `login` (couple utilisateur / mot de passe chiffré) dans la base MySQL.
+
+---
+
+### Processus métier global
+
+1. **Création d’un nouveau produit**
+   - Depuis l’écran de création, l’utilisateur saisit :
+     - le **nom scientifique**,
+     - le **nom générique**,
+     - le **symptôme traité**.
+   - Le système génère un nouvel `idProduit` et crée les entrées nécessaires en base (produit, symptôme traité, phase initiale).
+
+2. **Élaboration de la recette en phase R&D**
+   - L’utilisateur construit la **recette de fabrication** :
+     - ajoute / supprime des ingrédients, définit quantités et unités,
+     - décompose le procédé en **étapes** avec opérations et durées,
+     - affecte des **ressources humaines**,
+     - saisit un **commentaire de phase**.
+   - La recette est sauvegardée et peut être **exportée en PDF** pour diffusion ou archivage.
+
+3. **Passage aux phases successives**
+   - Lorsque la phase R&D est jugée satisfaisante, l’utilisateur :
+     - **valide la phase** (mise à jour du statut dans la table de validation),
+     - déclenche le passage à la **phase suivante** (tests animaux).
+   - Après les tests animaux, même logique pour le passage vers les **essais humains** :
+     - validation de la phase précédente,
+     - création / initialisation de la nouvelle phase dans la base.
+
+4. **Gestion des essais (animaux et humains)**
+   - Pour chaque produit / version :
+     - l’utilisateur peut créer un ou plusieurs **tests animaux**, saisir leurs paramètres et résultats, et enregistrer les effets secondaires.
+     - une fois ces tests terminés et validés, il peut créer des **essais cliniques humains**, structurés de façon similaire (paramètres, résultats, effets secondaires).
+   - Chaque essai possède un **statut** (en cours, terminé/validé), reflété visuellement dans les grilles par une icône.
+  
+5. **Pilotage et consultation**
+   - L’écran d’accueil liste l’ensemble des **produits** avec :
+     - leur **phase courante**,
+     - la **dernière version**,
+     - les dates d’insertion / validation,
+     - les symptômes traités.
+   - Des **filtres** permettent de rechercher un produit par :
+     - identifiant,
+     - nom scientifique,
+     - symptôme,
+     - phase,
+     - plages de dates.
+   - Depuis cette vue, l’utilisateur navigue vers :
+     - la création d’un nouveau produit,
+     - l’upgrade de version,
+     - le détail de la recette,
+     - les tests animaux ou essais humains associés.
