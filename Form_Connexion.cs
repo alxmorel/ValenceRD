@@ -125,6 +125,12 @@ namespace ValenceRD
         {
             if (! string.IsNullOrEmpty(inputUser.Text) || !string.IsNullOrEmpty(inputMdp.Text))
             {
+                /////////////CONNEXION SANS MDP CHECK - A METTRE EN COMMENTAIRE SI CONNEXION AVEC MDP CHECK EST ACTIVEE///////////
+                this.Hide();
+                MainPageRDValence main = new MainPageRDValence();
+                main.StartPosition = FormStartPosition.CenterParent;
+                main.Show();
+                ////////////////////////////////FIN CONNEXION SANS MDP CHECK//////////////////////////////
                 //ATTENTION LE SERVEUR ACTIVE DIRECTORY DOIT ÊTRE OUVERT !
                 /*
                 if (UserAccessActiveDirectory(inputUser.Text, inputMdp.Text))
@@ -135,47 +141,49 @@ namespace ValenceRD
                     main.Show();
                 }
                 */
+
+                //CONNEXION AVEC MDP CHECK
                 /////////////A METTRE EN COMMENTAIRE LA CONNECTION LOCALHOST///////////
-                String mdpEncrypt = Encrypt(inputMdp.Text);
+                // String mdpEncrypt = Encrypt(inputMdp.Text);
 
-                DBConnection dbCon = DBConnection.Instance();
-                dbCon.DatabaseName = "r_d_valence";
+                // DBConnection dbCon = DBConnection.Instance();
+                // dbCon.DatabaseName = "r_d_valence";
 
-                if (dbCon.IsConnect())
-                {
-                    Console.WriteLine("DB CONNECTION FAITE !");
+                // if (dbCon.IsConnect())
+                // {
+                //     Console.WriteLine("DB CONNECTION FAITE !");
 
-                    string queryUserMdp = "select count(*) from login where user =\"" + inputUser.Text + "\" and password =\"" + mdpEncrypt + "\" ";
-                    MySqlCommand cmdIdVersion = new MySqlCommand(queryUserMdp, dbCon.Connection);
-                    MySqlDataReader readerUserMdp = cmdIdVersion.ExecuteReader();
+                //     string queryUserMdp = "select count(*) from login where user =\"" + inputUser.Text + "\" and password =\"" + mdpEncrypt + "\" ";
+                //     MySqlCommand cmdIdVersion = new MySqlCommand(queryUserMdp, dbCon.Connection);
+                //     MySqlDataReader readerUserMdp = cmdIdVersion.ExecuteReader();
 
-                    if (readerUserMdp.HasRows)
-                    {
-                        readerUserMdp.Read();
+                //     if (readerUserMdp.HasRows)
+                //     {
+                //         readerUserMdp.Read();
 
-                        if (readerUserMdp.GetInt32(0)==1)
-                        {
-                            Console.WriteLine("Couple user / mot de passe trouvé");
+                //         if (readerUserMdp.GetInt32(0)==1)
+                //         {
+                //             Console.WriteLine("Couple user / mot de passe trouvé");
 
-                            this.Hide();
-                            MainPageRDValence main = new MainPageRDValence();
-                            main.StartPosition = FormStartPosition.CenterParent;
-                            main.Show();
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couple user / mot de passe non trouvé");
-                            MessageBox.Show("Please enter a valid username and password", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //             this.Hide();
+                //             MainPageRDValence main = new MainPageRDValence();
+                //             main.StartPosition = FormStartPosition.CenterParent;
+                //             main.Show();
+                //         }
+                //         else
+                //         {
+                //             Console.WriteLine("Couple user / mot de passe non trouvé");
+                //             MessageBox.Show("Please enter a valid username and password", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("La requète n'a pas renvoyé de ligne");
-                    }
-                    readerUserMdp.Close();
-                }
-                dbCon.Close();
+                //         }
+                //     }
+                //     else
+                //     {
+                //         Console.WriteLine("La requète n'a pas renvoyé de ligne");
+                //     }
+                //     readerUserMdp.Close();
+                // }
+                // dbCon.Close();
                 /////////////FIN A METTRE EN COMMENTAIRE LA CONNECTION LOCALHOST///////////
             }
             else
